@@ -1,22 +1,9 @@
 import json
 
-from django.contrib.staticfiles.finders import find
-from django.contrib.staticfiles.storage import staticfiles_storage
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-
-def static_fallback_open(static_path, mode="r"):
-    writing = "w" in mode or "a" in mode
-
-    if writing or staticfiles_storage.exists(static_path):
-        return staticfiles_storage.open(static_path, mode)
-
-    # fall back to finders path
-    absolute_path = find(static_path)
-    if absolute_path is None:
-        raise IOError("{0} does not exist".format(static_path))
-
-    return open(absolute_path, mode)
+from .utils import static_fallback_open
 
 
 def index(request):
@@ -75,3 +62,12 @@ def index(request):
 
     context = {"react_css_bundle": react_css_bundle, "react_js_bundle": react_js_bundle}
     return render(request, "index.html", context=context)
+
+
+@login_required
+def index_authenticated(request):
+    """
+    our default view for showing React app content
+    leverages the Django authentication system.
+    """
+    return index(request)
