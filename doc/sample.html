@@ -1,0 +1,4507 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>django_with_react</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hybrid Django + ReactJS setup">
+    <meta name="author" content="Lawrence McDaniel">
+
+    <link rel="icon" href="/static/images/favicons/favicon.ico">
+
+    
+    
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Your stuff: Third-party CSS libraries go here -->
+    <!-- This file stores project-specific CSS -->
+    <link href="/static/css/project.css" rel="stylesheet">
+    
+    <!-- ReactJS css bundle from optimized build -->
+    <link href="/static/css/main.073c9b0a.css" rel="stylesheet">
+
+    <!-- Le javascript
+    ================================================== -->
+    
+    
+    
+      <!-- Bootstrap JS -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- Your stuff: Third-party javascript libraries go here -->
+
+      <!-- place project specific Javascript in this file -->
+      <script defer src="/static/js/project.js"></script>
+
+    
+    <!-- ReactJS js bundle from optimized build -->
+    <script defer="defer" src="/static/js/main.eb038854.js"></script>
+
+
+  </head>
+
+  <body>
+
+    <div class="mb-1">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/">django_with_react</a>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="visually-hidden">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/app">ReactJS Example</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+              </li>
+              
+                <li class="nav-item">
+                  
+                  <a class="nav-link" href="/users/admin/">My Profile</a>
+                </li>
+                <li class="nav-item">
+                  
+                  <a class="nav-link" href="/accounts/logout/">Sign Out</a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="container">
+
+      
+
+      
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="reactjs-root"></div>
+
+
+    </div> <!-- /container -->
+
+    
+
+    
+    
+    
+  
+
+<link rel="stylesheet" href="/static/debug_toolbar/css/print.css" media="print">
+<link rel="stylesheet" href="/static/debug_toolbar/css/toolbar.css">
+
+
+<script type="module" src="/static/debug_toolbar/js/toolbar.js" async></script>
+
+<div id="djDebug" class="djdt-hidden" dir="ltr"
+     
+     data-default-show="true"
+     >
+  <div class="djdt-hidden" id="djDebugToolbar">
+    <ul id="djDebugPanelList">
+      <li><a id="djHideToolBarButton" href="#" title="Hide toolbar">Hide »</a></li>
+      
+        
+
+<li id="djdt-HistoryPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtHistoryPanel" title="Enable for next and successive requests">
+  
+    <div class="djdt-contentless djdt-disabled">
+  
+  History
+  
+  
+    </div>
+  
+</li>
+
+      
+        
+
+<li id="djdt-VersionsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtVersionsPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Versions" class="VersionsPanel">
+  
+  Versions
+  
+    
+      <br><small>Django 3.2.11</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-TimerPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtTimerPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Time" class="TimerPanel">
+  
+  Time
+  
+    
+      <br><small>CPU: 58.08ms (89.01ms)</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-SettingsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtSettingsPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Settings from config.settings.local" class="SettingsPanel">
+  
+  Settings
+  
+    
+      
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-HeadersPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtHeadersPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Headers" class="HeadersPanel">
+  
+  Headers
+  
+    
+      
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-RequestPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtRequestPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Request" class="RequestPanel">
+  
+  Request
+  
+    
+      <br><small>index_authenticated</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-SQLPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtSQLPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="SQL queries from 1 connection" class="SQLPanel">
+  
+  SQL
+  
+    
+      <br><small>2 queries in 2.78ms</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-StaticFilesPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtStaticFilesPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Static files (198 found, 3 used)" class="StaticFilesPanel">
+  
+  Static files
+  
+    
+      <br><small>3 files used</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-TemplatesPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtTemplatesPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Templates (2 rendered)" class="TemplatesPanel">
+  
+  Templates
+  
+    
+      <br><small>index.html</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-CachePanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtCachePanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Cache calls from 1 backend" class="CachePanel">
+  
+  Cache
+  
+    
+      <br><small>0 calls in 0.00ms</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-SignalsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtSignalsPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Signals" class="SignalsPanel">
+  
+  Signals
+  
+    
+      <br><small>49 receivers of 15 signals</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-LoggingPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtLoggingPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Log messages" class="LoggingPanel">
+  
+  Logging
+  
+    
+      <br><small>0 messages</small>
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+        
+
+<li id="djdt-RedirectsPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests">
+  
+    <div class="djdt-contentless djdt-disabled">
+  
+  Intercept redirects
+  
+  
+    </div>
+  
+</li>
+
+      
+        
+
+<li id="djdt-ProfilingPanel" class="djDebugPanelButton">
+  <input type="checkbox" data-cookie="djdtProfilingPanel" checked title="Disable for next and successive requests">
+  
+    <a href="#" title="Profiling" class="ProfilingPanel">
+  
+  Profiling
+  
+    
+      
+    
+  
+  
+    </a>
+  
+</li>
+
+      
+    </ul>
+  </div>
+  <div class="djdt-hidden" id="djDebugToolbarHandle">
+    <div title="Show toolbar" id="djShowToolBarButton">
+      <span id="djShowToolBarD">D</span><span id="djShowToolBarJ">J</span>DT
+    </div>
+  </div>
+
+  
+    
+
+
+
+  
+    
+
+
+  <div id="VersionsPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Versions</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<table>
+  <colgroup>
+    <col class="djdt-width-20">
+    <col class="djdt-width-20">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Django</td>
+        <td></td>
+        <td>3.2.11</td>
+      </tr>
+    
+      <tr>
+        <td>Python</td>
+        <td></td>
+        <td>3.9.10</td>
+      </tr>
+    
+      <tr>
+        <td>allauth</td>
+        <td>Allauth</td>
+        <td>0.47.0.final.0</td>
+      </tr>
+    
+      <tr>
+        <td>compressor</td>
+        <td>Compressor</td>
+        <td>3.1</td>
+      </tr>
+    
+      <tr>
+        <td>crispy_forms</td>
+        <td>Crispy_Forms</td>
+        <td>1.14.0</td>
+      </tr>
+    
+      <tr>
+        <td>debug_toolbar</td>
+        <td>Debug Toolbar</td>
+        <td>3.2.4</td>
+      </tr>
+    
+      <tr>
+        <td>django_celery_beat</td>
+        <td>Periodic Tasks</td>
+        <td>2.2.1</td>
+      </tr>
+    
+      <tr>
+        <td>django_extensions</td>
+        <td>Django Extensions</td>
+        <td>3.1.5</td>
+      </tr>
+    
+      <tr>
+        <td>drf_spectacular</td>
+        <td>drf-spectacular</td>
+        <td>0.21.1</td>
+      </tr>
+    
+      <tr>
+        <td>rest_framework</td>
+        <td>Django REST framework</td>
+        <td>3.13.1</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="TimerPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Time</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<h4>Resource usage</h4>
+<table>
+  <colgroup>
+    <col class="djdt-width-20">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>User CPU time</td>
+        <td>51.373 msec</td>
+      </tr>
+    
+      <tr>
+        <td>System CPU time</td>
+        <td>6.712 msec</td>
+      </tr>
+    
+      <tr>
+        <td>Total CPU time</td>
+        <td>58.085 msec</td>
+      </tr>
+    
+      <tr>
+        <td>Elapsed time</td>
+        <td>89.009 msec</td>
+      </tr>
+    
+      <tr>
+        <td>Context switches</td>
+        <td>53 voluntary, 40 involuntary</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<!-- This hidden div is populated and displayed by code in toolbar.timer.js -->
+<div id="djDebugBrowserTiming" class="djdt-hidden">
+  <h4>Browser timing</h4>
+  <table>
+    <colgroup>
+      <col class="djdt-width-20">
+      <col class="djdt-width-60">
+      <col class="djdt-width-20">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Timing attribute</th>
+        <th>Timeline</th>
+        <th>Milliseconds since navigation start (+length)</th>
+      </tr>
+    </thead>
+    <tbody id="djDebugBrowserTimingTableBody">
+    </tbody>
+  </table>
+</div>
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="SettingsPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Settings from config.settings.local</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>ABSOLUTE_URL_OVERRIDES</td>
+        <td><code>{}</code></td>
+      </tr>
+    
+      <tr>
+        <td>ACCOUNT_ADAPTER</td>
+        <td><code>&#x27;django_with_react.djangoapps.users.adapters.AccountAdapter&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>ACCOUNT_ALLOW_REGISTRATION</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>ACCOUNT_AUTHENTICATION_METHOD</td>
+        <td><code>&#x27;username&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>ACCOUNT_EMAIL_REQUIRED</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>ACCOUNT_EMAIL_VERIFICATION</td>
+        <td><code>&#x27;mandatory&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>ACCOUNT_FORMS</td>
+        <td><code>{&#x27;signup&#x27;: &#x27;django_with_react.djangoapps.users.forms.UserSignupForm&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>ADMINS</td>
+        <td><code>[(&#x27;Lawrence McDaniel&#x27;, &#x27;lpm0073@gmail.com&#x27;)]</code></td>
+      </tr>
+    
+      <tr>
+        <td>ADMIN_URL</td>
+        <td><code>&#x27;admin/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>ALLOWED_HOSTS</td>
+        <td><code>[&#x27;localhost&#x27;, &#x27;0.0.0.0&#x27;, &#x27;127.0.0.1&#x27;, &#x27;django_with_react.local&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>APPEND_SLASH</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>APPS_DIR</td>
+        <td><code>PosixPath(&#x27;/app/django_with_react&#x27;)</code></td>
+      </tr>
+    
+      <tr>
+        <td>AUTHENTICATION_BACKENDS</td>
+        <td><code>[&#x27;django.contrib.auth.backends.ModelBackend&#x27;,
+ &#x27;allauth.account.auth_backends.AuthenticationBackend&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>AUTH_PASSWORD_VALIDATORS</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>AUTH_USER_MODEL</td>
+        <td><code>&#x27;users.User&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CACHES</td>
+        <td><code>{&#x27;default&#x27;: {&#x27;BACKEND&#x27;: &#x27;django.core.cache.backends.locmem.LocMemCache&#x27;,
+             &#x27;LOCATION&#x27;: &#x27;&#x27;}}</code></td>
+      </tr>
+    
+      <tr>
+        <td>CACHE_MIDDLEWARE_ALIAS</td>
+        <td><code>&#x27;default&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CACHE_MIDDLEWARE_SECONDS</td>
+        <td><code>600</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_ACCEPT_CONTENT</td>
+        <td><code>[&#x27;json&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_BEAT_SCHEDULER</td>
+        <td><code>&#x27;django_celery_beat.schedulers:DatabaseScheduler&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_BROKER_URL</td>
+        <td><code>&#x27;redis://redis:6379/0&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_RESULT_BACKEND</td>
+        <td><code>&#x27;redis://redis:6379/0&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_RESULT_SERIALIZER</td>
+        <td><code>&#x27;json&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_TASK_EAGER_PROPAGATES</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_TASK_SERIALIZER</td>
+        <td><code>&#x27;json&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_TASK_SOFT_TIME_LIMIT</td>
+        <td><code>60</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_TASK_TIME_LIMIT</td>
+        <td><code>300</code></td>
+      </tr>
+    
+      <tr>
+        <td>CELERY_TIMEZONE</td>
+        <td><code>&#x27;UTC&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESSORS</td>
+        <td><code>{&#x27;css&#x27;: &#x27;compressor.css.CssCompressor&#x27;, &#x27;js&#x27;: &#x27;compressor.js.JsCompressor&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CACHEABLE_PRECOMPILERS</td>
+        <td><code>()</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CACHE_BACKEND</td>
+        <td><code>&#x27;default&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CACHE_KEY_FUNCTION</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CLEAN_CSS_ARGUMENTS</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CLEAN_CSS_BINARY</td>
+        <td><code>&#x27;cleancss&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CLOSURE_COMPILER_ARGUMENTS</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CLOSURE_COMPILER_BINARY</td>
+        <td><code>&#x27;java -jar compiler.jar&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_CSS_HASHING_METHOD</td>
+        <td><code>&#x27;mtime&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_DATA_URI_MAX_SIZE</td>
+        <td><code>1024</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_DEBUG_TOGGLE</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_ENABLED</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_FILTERS</td>
+        <td><code>{&#x27;css&#x27;: [&#x27;compressor.filters.css_default.CssAbsoluteFilter&#x27;,
+         &#x27;compressor.filters.cssmin.rCSSMinFilter&#x27;],
+ &#x27;js&#x27;: [&#x27;compressor.filters.jsmin.rJSMinFilter&#x27;]}</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_JINJA2_GET_ENVIRONMENT</td>
+        <td><code>&lt;function CompressorConf.JINJA2_GET_ENVIRONMENT at 0xffffa37e1160&gt;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_MINT_DELAY</td>
+        <td><code>30</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_MTIME_DELAY</td>
+        <td><code>10</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_OFFLINE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_OFFLINE_CONTEXT</td>
+        <td><code>{&#x27;STATIC_URL&#x27;: &#x27;/static/&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_OFFLINE_MANIFEST</td>
+        <td><code>&#x27;manifest.json&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_OFFLINE_TIMEOUT</td>
+        <td><code>31536000</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_OUTPUT_DIR</td>
+        <td><code>&#x27;CACHE&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_PARSER</td>
+        <td><code>&#x27;compressor.parser.AutoSelectParser&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_PRECOMPILERS</td>
+        <td><code>()</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_REBUILD_TIMEOUT</td>
+        <td><code>2592000</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_ROOT</td>
+        <td><code>&#x27;/app/staticfiles&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_STORAGE</td>
+        <td><code>&#x27;compressor.storage.CompressorFileStorage&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_TEMPLATE_FILTER_CONTEXT</td>
+        <td><code>{&#x27;STATIC_URL&#x27;: &#x27;/static/&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_URL</td>
+        <td><code>&#x27;/static/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_URL_PLACEHOLDER</td>
+        <td><code>&#x27;/__compressor_url_placeholder__/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_VERBOSE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_YUGLIFY_BINARY</td>
+        <td><code>&#x27;yuglify&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_YUGLIFY_CSS_ARGUMENTS</td>
+        <td><code>&#x27;--terminal&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_YUGLIFY_JS_ARGUMENTS</td>
+        <td><code>&#x27;--terminal&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_YUI_BINARY</td>
+        <td><code>&#x27;java -jar yuicompressor.jar&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_YUI_CSS_ARGUMENTS</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>COMPRESS_YUI_JS_ARGUMENTS</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CORS_URLS_REGEX</td>
+        <td><code>&#x27;^/api/.*$&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CRISPY_ALLOWED_TEMPLATE_PACKS</td>
+        <td><code>&#x27;bootstrap5&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CRISPY_TEMPLATE_PACK</td>
+        <td><code>&#x27;bootstrap5&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_AGE</td>
+        <td><code>31449600</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_DOMAIN</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_HTTPONLY</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_NAME</td>
+        <td><code>&#x27;csrftoken&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_PATH</td>
+        <td><code>&#x27;/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_SAMESITE</td>
+        <td><code>&#x27;Lax&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_COOKIE_SECURE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_FAILURE_VIEW</td>
+        <td><code>&#x27;django.views.csrf.csrf_failure&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_HEADER_NAME</td>
+        <td><code>&#x27;HTTP_X_CSRFTOKEN&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_TRUSTED_ORIGINS</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>CSRF_USE_SESSIONS</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATABASES</td>
+        <td><code>{&#x27;default&#x27;: {&#x27;ATOMIC_REQUESTS&#x27;: True,
+             &#x27;AUTOCOMMIT&#x27;: True,
+             &#x27;CONN_MAX_AGE&#x27;: 0,
+             &#x27;ENGINE&#x27;: &#x27;django.db.backends.postgresql&#x27;,
+             &#x27;HOST&#x27;: &#x27;postgres&#x27;,
+             &#x27;NAME&#x27;: &#x27;django_with_react&#x27;,
+             &#x27;OPTIONS&#x27;: {},
+             &#x27;PASSWORD&#x27;: &#x27;********************&#x27;,
+             &#x27;PORT&#x27;: 5432,
+             &#x27;TEST&#x27;: {&#x27;CHARSET&#x27;: None,
+                      &#x27;COLLATION&#x27;: None,
+                      &#x27;MIGRATE&#x27;: True,
+                      &#x27;MIRROR&#x27;: None,
+                      &#x27;NAME&#x27;: None},
+             &#x27;TIME_ZONE&#x27;: None,
+             &#x27;USER&#x27;: &#x27;kygldZVwVzvfZUeFVmtdJHdHJaLcgzgI&#x27;}}</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATABASE_ROUTERS</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATA_UPLOAD_MAX_MEMORY_SIZE</td>
+        <td><code>2621440</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATA_UPLOAD_MAX_NUMBER_FIELDS</td>
+        <td><code>1000</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATETIME_FORMAT</td>
+        <td><code>&#x27;N j, Y, P&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATETIME_INPUT_FORMATS</td>
+        <td><code>[&#x27;%Y-%m-%d %H:%M:%S&#x27;,
+ &#x27;%Y-%m-%d %H:%M:%S.%f&#x27;,
+ &#x27;%Y-%m-%d %H:%M&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%Y %H:%M&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%y %H:%M&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATE_FORMAT</td>
+        <td><code>&#x27;N j, Y&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DATE_INPUT_FORMATS</td>
+        <td><code>[&#x27;%Y-%m-%d&#x27;,
+ &#x27;%m/%d/%Y&#x27;,
+ &#x27;%m/%d/%y&#x27;,
+ &#x27;%b %d %Y&#x27;,
+ &#x27;%b %d, %Y&#x27;,
+ &#x27;%d %b %Y&#x27;,
+ &#x27;%d %b, %Y&#x27;,
+ &#x27;%B %d %Y&#x27;,
+ &#x27;%B %d, %Y&#x27;,
+ &#x27;%d %B %Y&#x27;,
+ &#x27;%d %B, %Y&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEBUG</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEBUG_TOOLBAR_CONFIG</td>
+        <td><code>{&#x27;DISABLE_PANELS&#x27;: [&#x27;debug_toolbar.panels.redirects.RedirectsPanel&#x27;],
+ &#x27;SHOW_TEMPLATE_CONTEXT&#x27;: True}</code></td>
+      </tr>
+    
+      <tr>
+        <td>DECIMAL_SEPARATOR</td>
+        <td><code>&#x27;.&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_AUTO_FIELD</td>
+        <td><code>&#x27;django.db.models.BigAutoField&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_CHARSET</td>
+        <td><code>&#x27;utf-8&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_EXCEPTION_REPORTER</td>
+        <td><code>&#x27;django.views.debug.ExceptionReporter&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+        <td><code>&#x27;django.views.debug.SafeExceptionReporterFilter&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_FILE_STORAGE</td>
+        <td><code>&#x27;django.core.files.storage.FileSystemStorage&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_FROM_EMAIL</td>
+        <td><code>&#x27;webmaster@localhost&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_HASHING_ALGORITHM</td>
+        <td><code>&#x27;sha256&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_INDEX_TABLESPACE</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DEFAULT_TABLESPACE</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>DISALLOWED_USER_AGENTS</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>DJANGO_APPS</td>
+        <td><code>[&#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.sites&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;django.contrib.admin&#x27;,
+ &#x27;django.forms&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_BACKEND</td>
+        <td><code>&#x27;django.core.mail.backends.console.EmailBackend&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_HOST</td>
+        <td><code>&#x27;localhost&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_HOST_PASSWORD</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_HOST_USER</td>
+        <td><code>&#x27;&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_PORT</td>
+        <td><code>25</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_SSL_CERTFILE</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_SSL_KEYFILE</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_SUBJECT_PREFIX</td>
+        <td><code>&#x27;[Django] &#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_TIMEOUT</td>
+        <td><code>5</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_USE_LOCALTIME</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_USE_SSL</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>EMAIL_USE_TLS</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>FILE_UPLOAD_HANDLERS</td>
+        <td><code>[&#x27;django.core.files.uploadhandler.MemoryFileUploadHandler&#x27;,
+ &#x27;django.core.files.uploadhandler.TemporaryFileUploadHandler&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+        <td><code>2621440</code></td>
+      </tr>
+    
+      <tr>
+        <td>FILE_UPLOAD_PERMISSIONS</td>
+        <td><code>420</code></td>
+      </tr>
+    
+      <tr>
+        <td>FILE_UPLOAD_TEMP_DIR</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>FIRST_DAY_OF_WEEK</td>
+        <td><code>0</code></td>
+      </tr>
+    
+      <tr>
+        <td>FIXTURE_DIRS</td>
+        <td><code>(&#x27;/app/django_with_react/fixtures&#x27;,)</code></td>
+      </tr>
+    
+      <tr>
+        <td>FORCE_SCRIPT_NAME</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>FORMAT_MODULE_PATH</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>FORM_RENDERER</td>
+        <td><code>&#x27;django.forms.renderers.TemplatesSetting&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>FRONTEND_DIR</td>
+        <td><code>PosixPath(&#x27;/app/django_with_react/djangoapps/frontend&#x27;)</code></td>
+      </tr>
+    
+      <tr>
+        <td>IGNORABLE_404_URLS</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>INSTALLED_APPS</td>
+        <td><code>[&#x27;whitenoise.runserver_nostatic&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.sites&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;django.contrib.admin&#x27;,
+ &#x27;django.forms&#x27;,
+ &#x27;crispy_forms&#x27;,
+ &#x27;crispy_bootstrap5&#x27;,
+ &#x27;allauth&#x27;,
+ &#x27;allauth.account&#x27;,
+ &#x27;allauth.socialaccount&#x27;,
+ &#x27;django_celery_beat&#x27;,
+ &#x27;rest_framework&#x27;,
+ &#x27;rest_framework.authtoken&#x27;,
+ &#x27;corsheaders&#x27;,
+ &#x27;drf_spectacular&#x27;,
+ &#x27;django_with_react.djangoapps.users&#x27;,
+ &#x27;django_with_react.djangoapps.frontend&#x27;,
+ &#x27;compressor&#x27;,
+ &#x27;debug_toolbar&#x27;,
+ &#x27;django_extensions&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>INTERNAL_IPS</td>
+        <td><code>[&#x27;127.0.0.1&#x27;, &#x27;10.0.2.2&#x27;, &#x27;172.24.0.1&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGES</td>
+        <td><code>[(&#x27;af&#x27;, &#x27;Afrikaans&#x27;),
+ (&#x27;ar&#x27;, &#x27;Arabic&#x27;),
+ (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;),
+ (&#x27;ast&#x27;, &#x27;Asturian&#x27;),
+ (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;),
+ (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;),
+ (&#x27;be&#x27;, &#x27;Belarusian&#x27;),
+ (&#x27;bn&#x27;, &#x27;Bengali&#x27;),
+ (&#x27;br&#x27;, &#x27;Breton&#x27;),
+ (&#x27;bs&#x27;, &#x27;Bosnian&#x27;),
+ (&#x27;ca&#x27;, &#x27;Catalan&#x27;),
+ (&#x27;cs&#x27;, &#x27;Czech&#x27;),
+ (&#x27;cy&#x27;, &#x27;Welsh&#x27;),
+ (&#x27;da&#x27;, &#x27;Danish&#x27;),
+ (&#x27;de&#x27;, &#x27;German&#x27;),
+ (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;),
+ (&#x27;el&#x27;, &#x27;Greek&#x27;),
+ (&#x27;en&#x27;, &#x27;English&#x27;),
+ (&#x27;en-au&#x27;, &#x27;Australian English&#x27;),
+ (&#x27;en-gb&#x27;, &#x27;British English&#x27;),
+ (&#x27;eo&#x27;, &#x27;Esperanto&#x27;),
+ (&#x27;es&#x27;, &#x27;Spanish&#x27;),
+ (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;),
+ (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;),
+ (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;),
+ (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;),
+ (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;),
+ (&#x27;et&#x27;, &#x27;Estonian&#x27;),
+ (&#x27;eu&#x27;, &#x27;Basque&#x27;),
+ (&#x27;fa&#x27;, &#x27;Persian&#x27;),
+ (&#x27;fi&#x27;, &#x27;Finnish&#x27;),
+ (&#x27;fr&#x27;, &#x27;French&#x27;),
+ (&#x27;fy&#x27;, &#x27;Frisian&#x27;),
+ (&#x27;ga&#x27;, &#x27;Irish&#x27;),
+ (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;),
+ (&#x27;gl&#x27;, &#x27;Galician&#x27;),
+ (&#x27;he&#x27;, &#x27;Hebrew&#x27;),
+ (&#x27;hi&#x27;, &#x27;Hindi&#x27;),
+ (&#x27;hr&#x27;, &#x27;Croatian&#x27;),
+ (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;),
+ (&#x27;hu&#x27;, &#x27;Hungarian&#x27;),
+ (&#x27;hy&#x27;, &#x27;Armenian&#x27;),
+ (&#x27;ia&#x27;, &#x27;Interlingua&#x27;),
+ (&#x27;id&#x27;, &#x27;Indonesian&#x27;),
+ (&#x27;ig&#x27;, &#x27;Igbo&#x27;),
+ (&#x27;io&#x27;, &#x27;Ido&#x27;),
+ (&#x27;is&#x27;, &#x27;Icelandic&#x27;),
+ (&#x27;it&#x27;, &#x27;Italian&#x27;),
+ (&#x27;ja&#x27;, &#x27;Japanese&#x27;),
+ (&#x27;ka&#x27;, &#x27;Georgian&#x27;),
+ (&#x27;kab&#x27;, &#x27;Kabyle&#x27;),
+ (&#x27;kk&#x27;, &#x27;Kazakh&#x27;),
+ (&#x27;km&#x27;, &#x27;Khmer&#x27;),
+ (&#x27;kn&#x27;, &#x27;Kannada&#x27;),
+ (&#x27;ko&#x27;, &#x27;Korean&#x27;),
+ (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;),
+ (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;),
+ (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;),
+ (&#x27;lv&#x27;, &#x27;Latvian&#x27;),
+ (&#x27;mk&#x27;, &#x27;Macedonian&#x27;),
+ (&#x27;ml&#x27;, &#x27;Malayalam&#x27;),
+ (&#x27;mn&#x27;, &#x27;Mongolian&#x27;),
+ (&#x27;mr&#x27;, &#x27;Marathi&#x27;),
+ (&#x27;my&#x27;, &#x27;Burmese&#x27;),
+ (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;),
+ (&#x27;ne&#x27;, &#x27;Nepali&#x27;),
+ (&#x27;nl&#x27;, &#x27;Dutch&#x27;),
+ (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;),
+ (&#x27;os&#x27;, &#x27;Ossetic&#x27;),
+ (&#x27;pa&#x27;, &#x27;Punjabi&#x27;),
+ (&#x27;pl&#x27;, &#x27;Polish&#x27;),
+ (&#x27;pt&#x27;, &#x27;Portuguese&#x27;),
+ (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;),
+ (&#x27;ro&#x27;, &#x27;Romanian&#x27;),
+ (&#x27;ru&#x27;, &#x27;Russian&#x27;),
+ (&#x27;sk&#x27;, &#x27;Slovak&#x27;),
+ (&#x27;sl&#x27;, &#x27;Slovenian&#x27;),
+ (&#x27;sq&#x27;, &#x27;Albanian&#x27;),
+ (&#x27;sr&#x27;, &#x27;Serbian&#x27;),
+ (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;),
+ (&#x27;sv&#x27;, &#x27;Swedish&#x27;),
+ (&#x27;sw&#x27;, &#x27;Swahili&#x27;),
+ (&#x27;ta&#x27;, &#x27;Tamil&#x27;),
+ (&#x27;te&#x27;, &#x27;Telugu&#x27;),
+ (&#x27;tg&#x27;, &#x27;Tajik&#x27;),
+ (&#x27;th&#x27;, &#x27;Thai&#x27;),
+ (&#x27;tk&#x27;, &#x27;Turkmen&#x27;),
+ (&#x27;tr&#x27;, &#x27;Turkish&#x27;),
+ (&#x27;tt&#x27;, &#x27;Tatar&#x27;),
+ (&#x27;udm&#x27;, &#x27;Udmurt&#x27;),
+ (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;),
+ (&#x27;ur&#x27;, &#x27;Urdu&#x27;),
+ (&#x27;uz&#x27;, &#x27;Uzbek&#x27;),
+ (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;),
+ (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;),
+ (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)]</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGES_BIDI</td>
+        <td><code>[&#x27;he&#x27;, &#x27;ar&#x27;, &#x27;ar-dz&#x27;, &#x27;fa&#x27;, &#x27;ur&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_CODE</td>
+        <td><code>&#x27;en-us&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_AGE</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_DOMAIN</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_HTTPONLY</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_NAME</td>
+        <td><code>&#x27;django_language&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_PATH</td>
+        <td><code>&#x27;/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_SAMESITE</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>LANGUAGE_COOKIE_SECURE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOCALE_PATHS</td>
+        <td><code>[&#x27;/app/locale&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOCAL_APPS</td>
+        <td><code>[&#x27;django_with_react.djangoapps.users&#x27;, &#x27;django_with_react.djangoapps.frontend&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOGGING</td>
+        <td><code>{&#x27;disable_existing_loggers&#x27;: False,
+ &#x27;formatters&#x27;: {&#x27;verbose&#x27;: {&#x27;format&#x27;: &#x27;%(levelname)s %(asctime)s %(module)s &#x27;
+                                      &#x27;%(process)d %(thread)d %(message)s&#x27;}},
+ &#x27;handlers&#x27;: {&#x27;console&#x27;: {&#x27;class&#x27;: &#x27;logging.StreamHandler&#x27;,
+                          &#x27;formatter&#x27;: &#x27;verbose&#x27;,
+                          &#x27;level&#x27;: &#x27;DEBUG&#x27;}},
+ &#x27;root&#x27;: {&#x27;handlers&#x27;: [&#x27;console&#x27;], &#x27;level&#x27;: &#x27;INFO&#x27;},
+ &#x27;version&#x27;: 1}</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOGGING_CONFIG</td>
+        <td><code>&#x27;logging.config.dictConfig&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOGIN_REDIRECT_URL</td>
+        <td><code>&#x27;users:redirect&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOGIN_URL</td>
+        <td><code>&#x27;account_login&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>LOGOUT_REDIRECT_URL</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>MANAGERS</td>
+        <td><code>[(&#x27;Lawrence McDaniel&#x27;, &#x27;lpm0073@gmail.com&#x27;)]</code></td>
+      </tr>
+    
+      <tr>
+        <td>MEDIA_ROOT</td>
+        <td><code>&#x27;/app/django_with_react/media&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>MEDIA_URL</td>
+        <td><code>&#x27;/media/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>MESSAGE_STORAGE</td>
+        <td><code>&#x27;django.contrib.messages.storage.fallback.FallbackStorage&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>MIDDLEWARE</td>
+        <td><code>[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;corsheaders.middleware.CorsMiddleware&#x27;,
+ &#x27;whitenoise.middleware.WhiteNoiseMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.locale.LocaleMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.common.BrokenLinkEmailsMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;,
+ &#x27;debug_toolbar.middleware.DebugToolbarMiddleware&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>MIGRATION_MODULES</td>
+        <td><code>{&#x27;sites&#x27;: &#x27;django_with_react.contrib.sites.migrations&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>MONTH_DAY_FORMAT</td>
+        <td><code>&#x27;F j&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>NUMBER_GROUPING</td>
+        <td><code>0</code></td>
+      </tr>
+    
+      <tr>
+        <td>PASSWORD_HASHERS</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>PASSWORD_RESET_TIMEOUT</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>PREPEND_WWW</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>READ_DOT_ENV_FILE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>REST_FRAMEWORK</td>
+        <td><code>{&#x27;DEFAULT_AUTHENTICATION_CLASSES&#x27;: (&#x27;rest_framework.authentication.SessionAuthentication&#x27;,
+                                    &#x27;rest_framework.authentication.TokenAuthentication&#x27;),
+ &#x27;DEFAULT_PERMISSION_CLASSES&#x27;: (&#x27;rest_framework.permissions.IsAuthenticated&#x27;,)}</code></td>
+      </tr>
+    
+      <tr>
+        <td>ROOT_DIR</td>
+        <td><code>PosixPath(&#x27;/app&#x27;)</code></td>
+      </tr>
+    
+      <tr>
+        <td>ROOT_URLCONF</td>
+        <td><code>&#x27;config.urls&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECRET_KEY</td>
+        <td><code>&#x27;********************&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_BROWSER_XSS_FILTER</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_HSTS_PRELOAD</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_HSTS_SECONDS</td>
+        <td><code>0</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_PROXY_SSL_HEADER</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_REDIRECT_EXEMPT</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_REFERRER_POLICY</td>
+        <td><code>&#x27;same-origin&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_SSL_HOST</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>SECURE_SSL_REDIRECT</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>SERVER_EMAIL</td>
+        <td><code>&#x27;root@localhost&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_CACHE_ALIAS</td>
+        <td><code>&#x27;default&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_AGE</td>
+        <td><code>1209600</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_DOMAIN</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_HTTPONLY</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_NAME</td>
+        <td><code>&#x27;sessionid&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_PATH</td>
+        <td><code>&#x27;/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_SAMESITE</td>
+        <td><code>&#x27;Lax&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_COOKIE_SECURE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_ENGINE</td>
+        <td><code>&#x27;django.contrib.sessions.backends.db&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_FILE_PATH</td>
+        <td><code>None</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_SAVE_EVERY_REQUEST</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>SESSION_SERIALIZER</td>
+        <td><code>&#x27;django.contrib.sessions.serializers.JSONSerializer&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SETTINGS_MODULE</td>
+        <td><code>&#x27;config.settings.local&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SHORT_DATETIME_FORMAT</td>
+        <td><code>&#x27;m/d/Y P&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SHORT_DATE_FORMAT</td>
+        <td><code>&#x27;m/d/Y&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SIGNING_BACKEND</td>
+        <td><code>&#x27;django.core.signing.TimestampSigner&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SILENCED_SYSTEM_CHECKS</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>SITE_ID</td>
+        <td><code>1</code></td>
+      </tr>
+    
+      <tr>
+        <td>SOCIALACCOUNT_ADAPTER</td>
+        <td><code>&#x27;django_with_react.djangoapps.users.adapters.SocialAccountAdapter&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>SOCIALACCOUNT_FORMS</td>
+        <td><code>{&#x27;signup&#x27;: &#x27;django_with_react.djangoapps.users.forms.UserSocialSignupForm&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>SPECTACULAR_SETTINGS</td>
+        <td><code>{&#x27;DESCRIPTION&#x27;: &#x27;Documentation of API endpoiints of django_with_react&#x27;,
+ &#x27;SERVERS&#x27;: [{&#x27;description&#x27;: &#x27;Local Development server&#x27;,
+              &#x27;url&#x27;: &#x27;https://127.0.0.1:8000&#x27;},
+             {&#x27;description&#x27;: &#x27;Production server&#x27;,
+              &#x27;url&#x27;: &#x27;https://dwr.lawrencemcdaniel.com&#x27;}],
+ &#x27;SERVE_PERMISSIONS&#x27;: [&#x27;rest_framework.permissions.IsAdminUser&#x27;],
+ &#x27;TITLE&#x27;: &#x27;django_with_react API&#x27;,
+ &#x27;VERSION&#x27;: &#x27;1.0.0&#x27;}</code></td>
+      </tr>
+    
+      <tr>
+        <td>STATICFILES_DIRS</td>
+        <td><code>[&#x27;/app/django_with_react/static&#x27;,
+ (&#x27;reactjs&#x27;, &#x27;/app/django_with_react/djangoapps/frontend/build&#x27;),
+ (&#x27;reactjs&#x27;, &#x27;/app/django_with_react/djangoapps/frontend/build/static&#x27;),
+ (&#x27;reactjs&#x27;, &#x27;/app/django_with_react/djangoapps/frontend/public/assets&#x27;)]</code></td>
+      </tr>
+    
+      <tr>
+        <td>STATICFILES_FINDERS</td>
+        <td><code>[&#x27;django.contrib.staticfiles.finders.FileSystemFinder&#x27;,
+ &#x27;django.contrib.staticfiles.finders.AppDirectoriesFinder&#x27;,
+ &#x27;compressor.finders.CompressorFinder&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>STATICFILES_STORAGE</td>
+        <td><code>&#x27;django.contrib.staticfiles.storage.StaticFilesStorage&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>STATIC_ROOT</td>
+        <td><code>&#x27;/app/staticfiles&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>STATIC_URL</td>
+        <td><code>&#x27;/static/&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>TEMPLATES</td>
+        <td><code>[{&#x27;APP_DIRS&#x27;: True,
+  &#x27;BACKEND&#x27;: &#x27;django.template.backends.django.DjangoTemplates&#x27;,
+  &#x27;DIRS&#x27;: [&#x27;/app/django_with_react/templates&#x27;],
+  &#x27;OPTIONS&#x27;: {&#x27;context_processors&#x27;: [&#x27;django.template.context_processors.debug&#x27;,
+                                     &#x27;django.template.context_processors.request&#x27;,
+                                     &#x27;django.contrib.auth.context_processors.auth&#x27;,
+                                     &#x27;django.template.context_processors.i18n&#x27;,
+                                     &#x27;django.template.context_processors.media&#x27;,
+                                     &#x27;django.template.context_processors.static&#x27;,
+                                     &#x27;django.template.context_processors.tz&#x27;,
+                                     &#x27;django.contrib.messages.context_processors.messages&#x27;,
+                                     &#x27;django_with_react.djangoapps.users.context_processors.allauth_settings&#x27;]}}]</code></td>
+      </tr>
+    
+      <tr>
+        <td>TEST_NON_SERIALIZED_APPS</td>
+        <td><code>[]</code></td>
+      </tr>
+    
+      <tr>
+        <td>TEST_RUNNER</td>
+        <td><code>&#x27;django.test.runner.DiscoverRunner&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>THIRD_PARTY_APPS</td>
+        <td><code>[&#x27;crispy_forms&#x27;,
+ &#x27;crispy_bootstrap5&#x27;,
+ &#x27;allauth&#x27;,
+ &#x27;allauth.account&#x27;,
+ &#x27;allauth.socialaccount&#x27;,
+ &#x27;django_celery_beat&#x27;,
+ &#x27;rest_framework&#x27;,
+ &#x27;rest_framework.authtoken&#x27;,
+ &#x27;corsheaders&#x27;,
+ &#x27;drf_spectacular&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>THOUSAND_SEPARATOR</td>
+        <td><code>&#x27;,&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>TIME_FORMAT</td>
+        <td><code>&#x27;P&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>TIME_INPUT_FORMATS</td>
+        <td><code>[&#x27;%H:%M:%S&#x27;, &#x27;%H:%M:%S.%f&#x27;, &#x27;%H:%M&#x27;]</code></td>
+      </tr>
+    
+      <tr>
+        <td>TIME_ZONE</td>
+        <td><code>&#x27;UTC&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>USE_I18N</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>USE_L10N</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>USE_THOUSAND_SEPARATOR</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>USE_TZ</td>
+        <td><code>True</code></td>
+      </tr>
+    
+      <tr>
+        <td>USE_X_FORWARDED_HOST</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>USE_X_FORWARDED_PORT</td>
+        <td><code>False</code></td>
+      </tr>
+    
+      <tr>
+        <td>WHITENOISE_ROOT</td>
+        <td><code>PosixPath(&#x27;/app/django_with_react/djangoapps/frontend/build&#x27;)</code></td>
+      </tr>
+    
+      <tr>
+        <td>WSGI_APPLICATION</td>
+        <td><code>&#x27;config.wsgi.application&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>X_FRAME_OPTIONS</td>
+        <td><code>&#x27;DENY&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td>YEAR_MONTH_FORMAT</td>
+        <td><code>&#x27;F Y&#x27;</code></td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="HeadersPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Headers</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+
+<h4>Request headers</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Accept</td>
+        <td>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</td>
+      </tr>
+    
+      <tr>
+        <td>Accept-Encoding</td>
+        <td>gzip, deflate, br</td>
+      </tr>
+    
+      <tr>
+        <td>Accept-Language</td>
+        <td>en-US,en;q=0.9,es-MX;q=0.8,es-US;q=0.7,es;q=0.6</td>
+      </tr>
+    
+      <tr>
+        <td>Connection</td>
+        <td>keep-alive</td>
+      </tr>
+    
+      <tr>
+        <td>Cookie</td>
+        <td>=&gt; see Request panel</td>
+      </tr>
+    
+      <tr>
+        <td>Host</td>
+        <td>localhost:8000</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Ch-Ua</td>
+        <td>&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Ch-Ua-Mobile</td>
+        <td>?0</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Ch-Ua-Platform</td>
+        <td>&quot;macOS&quot;</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Fetch-Dest</td>
+        <td>document</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Fetch-Mode</td>
+        <td>navigate</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Fetch-Site</td>
+        <td>none</td>
+      </tr>
+    
+      <tr>
+        <td>Sec-Fetch-User</td>
+        <td>?1</td>
+      </tr>
+    
+      <tr>
+        <td>Upgrade-Insecure-Requests</td>
+        <td>1</td>
+      </tr>
+    
+      <tr>
+        <td>User-Agent</td>
+        <td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<h4>Response headers</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>Content-Type</td>
+        <td>text/html; charset=utf-8</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<h4>WSGI environ</h4>
+
+<p>Since the WSGI environ inherits the environment of the server, only a significant subset is shown below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>PATH_INFO</td>
+        <td>/app</td>
+      </tr>
+    
+      <tr>
+        <td>QUERY_STRING</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>REMOTE_ADDR</td>
+        <td>172.24.0.1</td>
+      </tr>
+    
+      <tr>
+        <td>REMOTE_HOST</td>
+        <td>172.24.0.1</td>
+      </tr>
+    
+      <tr>
+        <td>REQUEST_METHOD</td>
+        <td>GET</td>
+      </tr>
+    
+      <tr>
+        <td>SCRIPT_NAME</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>SERVER_NAME</td>
+        <td>172.24.0.7</td>
+      </tr>
+    
+      <tr>
+        <td>SERVER_PORT</td>
+        <td>8000</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="RequestPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Request</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+
+<h4>View information</h4>
+<table>
+  <thead>
+    <tr>
+      <th>View function</th>
+      <th>Arguments</th>
+      <th>Keyword arguments</th>
+      <th>URL name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>django_with_react.djangoapps.frontend.views.index_authenticated</code></td>
+      <td><code>()</code></td>
+      <td><code>{}</code></td>
+      <td><code>&lt;unavailable&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <h4>Cookies</h4>
+  
+
+<table>
+  <colgroup>
+    <col class="djdt-width-20">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><code>&#x27;csrftoken&#x27;</code></td>
+        <td><code>&#x27;dNOoSpP3wZwnYFOUDdD00uVaxsx7u3YTB8ZI6kcFaMLgellga3tkolZ18tJHRuHX&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td><code>&#x27;sessionid&#x27;</code></td>
+        <td><code>&#x27;ll4z06mar5cgztx08wdapxh8jvbo81r6&#x27;</code></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+  <h4>Session data</h4>
+  
+
+<table>
+  <colgroup>
+    <col class="djdt-width-20">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td><code>&#x27;_auth_user_backend&#x27;</code></td>
+        <td><code>&#x27;django.contrib.auth.backends.ModelBackend&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td><code>&#x27;_auth_user_hash&#x27;</code></td>
+        <td><code>&#x27;cb389d385e64e82b32d7bbe9bf0d9ea50d9ef9f298d88bc03ecbf99ce8606ebd&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td><code>&#x27;_auth_user_id&#x27;</code></td>
+        <td><code>&#x27;1&#x27;</code></td>
+      </tr>
+    
+      <tr>
+        <td><code>&#x27;_session_expiry&#x27;</code></td>
+        <td><code>0</code></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+  <h4>No GET data</h4>
+
+
+
+  <h4>No POST data</h4>
+
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="SQLPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>SQL queries from 1 connection</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<ul>
+  
+    <li>
+      <strong><span class="djdt-color" data-djdt-styles="backgroundColor:rgb(256, 0, 0)"></span> default</strong>
+      2.78 ms (2 queries
+      )
+    </li>
+  
+</ul>
+
+
+  <table>
+    <colgroup>
+      <col>
+      <col>
+      <col>
+      <col class="djdt-width-30">
+      <col>
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th colspan="2">Query</th>
+        <th>Timeline</th>
+        <th>Time (ms)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="" id="sqlMain_1">
+          <td><span class="djdt-color" data-djdt-styles="backgroundColor:rgb(256, 0, 0)"></span></td>
+          <td class="djdt-toggle">
+            <button type="button" class="djToggleSwitch" data-toggle-name="sqlMain" data-toggle-id="1">+</button>
+          </td>
+          <td>
+            <div class="djDebugSql"><span class="djDebugCollapsed djdt-hidden"><strong>SELECT</strong> &quot;django_session&quot;.&quot;session_key&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;django_session&quot;.&quot;session_data&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;django_session&quot;.&quot;expire_date&quot; <strong><br/>&nbsp;&nbsp;FROM</strong> &quot;django_session&quot; <strong><br/>&nbsp;WHERE</strong> (&quot;django_session&quot;.&quot;expire_date&quot; &gt; &#x27;2022-01-27T23:56:38.163149+00:00&#x27;::timestamptz <strong>AND</strong> &quot;django_session&quot;.&quot;session_key&quot; = &#x27;ll4z06mar5cgztx08wdapxh8jvbo81r6&#x27;) <strong><br/>&nbsp;LIMIT</strong> 21</span><span class="djDebugUncollapsed"><strong>SELECT</strong> &#8226;&#8226;&#8226; <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;expire_date&quot; &gt; &#x27;2022-01-27T23:56:38.163149+00:00&#x27;::timestamptz <strong>AND</strong> &quot;django_session&quot;.&quot;session_key&quot; = &#x27;ll4z06mar5cgztx08wdapxh8jvbo81r6&#x27;) <strong>LIMIT</strong> 21</span></div>
+            
+            
+          </td>
+          <td>
+            <svg class="djDebugLineChart" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 5" preserveAspectRatio="none" aria-label="76.00034272984321%">
+              <rect x="0" y="0" height="5" width="76.00034272984321" fill="#800000" />
+              
+              
+            </svg>
+          </td>
+          <td class="djdt-time">
+            2.11
+          </td>
+          <td class="djdt-actions">
+            
+              
+                <form method="post">
+                  <input type="hidden" name="signed" value="{&quot;alias&quot;: &quot;default&quot;, &quot;duration&quot;: &quot;2.1147727966308594&quot;, &quot;is_select&quot;: &quot;True&quot;, &quot;is_slow&quot;: &quot;False&quot;, &quot;params&quot;: &quot;[\&quot;2022-01-27 23:56:38.163149+00:00\&quot;, \&quot;ll4z06mar5cgztx08wdapxh8jvbo81r6\&quot;]&quot;, &quot;raw_params&quot;: &quot;(datetime.datetime(2022, 1, 27, 23, 56, 38, 163149, tzinfo=&lt;UTC&gt;), &#x27;ll4z06mar5cgztx08wdapxh8jvbo81r6&#x27;)&quot;, &quot;raw_sql&quot;: &quot;SELECT \&quot;django_session\&quot;.\&quot;session_key\&quot;, \&quot;django_session\&quot;.\&quot;session_data\&quot;, \&quot;django_session\&quot;.\&quot;expire_date\&quot; FROM \&quot;django_session\&quot; WHERE (\&quot;django_session\&quot;.\&quot;expire_date\&quot; &gt; %s AND \&quot;django_session\&quot;.\&quot;session_key\&quot; = %s) LIMIT 21&quot;, &quot;sql&quot;: &quot;SELECT \&quot;django_session\&quot;.\&quot;session_key\&quot;, \&quot;django_session\&quot;.\&quot;session_data\&quot;, \&quot;django_session\&quot;.\&quot;expire_date\&quot; FROM \&quot;django_session\&quot; WHERE (\&quot;django_session\&quot;.\&quot;expire_date\&quot; &gt; &#x27;2022-01-27T23:56:38.163149+00:00&#x27;::timestamptz AND \&quot;django_session\&quot;.\&quot;session_key\&quot; = &#x27;ll4z06mar5cgztx08wdapxh8jvbo81r6&#x27;) LIMIT 21&quot;, &quot;stacktrace&quot;: &quot;[(&#x27;/usr/local/lib/python3.9/concurrent/futures/thread.py&#x27;, 83, &#x27;_worker&#x27;, &#x27;work_item.run()&#x27;, None), (&#x27;/usr/local/lib/python3.9/concurrent/futures/thread.py&#x27;, 58, &#x27;run&#x27;, &#x27;result = self.fn(*self.args, **self.kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/sync.py&#x27;, 455, &#x27;thread_handler&#x27;, &#x27;return func(*args, **kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/whitenoise/middleware.py&#x27;, 59, &#x27;__call__&#x27;, &#x27;response = self.get_response(request)&#x27;, None), (&#x27;/usr/local/lib/python3.9/cProfile.py&#x27;, 109, &#x27;runcall&#x27;, &#x27;return func(*args, **kw)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/sync.py&#x27;, 194, &#x27;__call__&#x27;, &#x27;current_executor.run_until_future(call_result)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py&#x27;, 62, &#x27;run_until_future&#x27;, &#x27;work_item.run()&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py&#x27;, 22, &#x27;run&#x27;, &#x27;result = self.fn(*self.args, **self.kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/sync.py&#x27;, 455, &#x27;thread_handler&#x27;, &#x27;return func(*args, **kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/contextlib.py&#x27;, 79, &#x27;inner&#x27;, &#x27;return func(*args, **kwds)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/decorators.py&#x27;, 20, &#x27;_wrapped_view&#x27;, &#x27;if test_func(request.user):&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/decorators.py&#x27;, 44, &#x27;&lt;lambda&gt;&#x27;, &#x27;lambda u: u.is_authenticated,&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py&#x27;, 23, &#x27;&lt;lambda&gt;&#x27;, &#x27;request.user = SimpleLazyObject(lambda: get_user(request))&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py&#x27;, 11, &#x27;get_user&#x27;, &#x27;request._cached_user = auth.get_user(request)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py&#x27;, 177, &#x27;get_user&#x27;, &#x27;user_id = _get_user_session_key(request)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py&#x27;, 60, &#x27;_get_user_session_key&#x27;, &#x27;return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/base.py&#x27;, 65, &#x27;__getitem__&#x27;, &#x27;return self._session[key]&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/base.py&#x27;, 238, &#x27;_get_session&#x27;, &#x27;self._session_cache = self.load()&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/db.py&#x27;, 43, &#x27;load&#x27;, &#x27;s = self._get_session_from_db()&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/db.py&#x27;, 32, &#x27;_get_session_from_db&#x27;, &#x27;return self.model.objects.get(&#x27;, None)]&quot;, &quot;start_time&quot;: &quot;1643327798.1652856&quot;, &quot;stop_time&quot;: &quot;1643327798.1674004&quot;, &quot;template_info&quot;: &quot;None&quot;, &quot;vendor&quot;: &quot;unknown&quot;}:Ko5QqnX2W5iLsM8c3wawS8WcNxVBGfYjibRvU86vmT0">
+                  <button formaction="/__debug__/sql_select/" class="remoteCall">Sel</button>
+                  <button formaction="/__debug__/sql_explain/" class="remoteCall">Expl</button>
+                  
+                </form>
+              
+            
+          </td>
+        </tr>
+        <tr class="djUnselected  djToggleDetails_1" id="sqlDetails_1">
+          <td colspan="2"></td>
+          <td colspan="4">
+            <div class="djSQLDetailsDiv">
+              <p><strong>Connection:</strong> default</p>
+              
+              
+              
+                <pre class="djdt-stack"><span class="djdt-path">/usr/local/lib/python3.9/concurrent/futures/</span><span class="djdt-file">thread.py</span> in <span class="djdt-func">_worker</span>(<span class="djdt-lineno">83</span>)
+  <span class="djdt-code">work_item.run()</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/concurrent/futures/</span><span class="djdt-file">thread.py</span> in <span class="djdt-func">run</span>(<span class="djdt-lineno">58</span>)
+  <span class="djdt-code">result = self.fn(*self.args, **self.kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">thread_handler</span>(<span class="djdt-lineno">455</span>)
+  <span class="djdt-code">return func(*args, **kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/whitenoise/</span><span class="djdt-file">middleware.py</span> in <span class="djdt-func">__call__</span>(<span class="djdt-lineno">59</span>)
+  <span class="djdt-code">response = self.get_response(request)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/</span><span class="djdt-file">cProfile.py</span> in <span class="djdt-func">runcall</span>(<span class="djdt-lineno">109</span>)
+  <span class="djdt-code">return func(*args, **kw)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">__call__</span>(<span class="djdt-lineno">194</span>)
+  <span class="djdt-code">current_executor.run_until_future(call_result)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">current_thread_executor.py</span> in <span class="djdt-func">run_until_future</span>(<span class="djdt-lineno">62</span>)
+  <span class="djdt-code">work_item.run()</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">current_thread_executor.py</span> in <span class="djdt-func">run</span>(<span class="djdt-lineno">22</span>)
+  <span class="djdt-code">result = self.fn(*self.args, **self.kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">thread_handler</span>(<span class="djdt-lineno">455</span>)
+  <span class="djdt-code">return func(*args, **kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/</span><span class="djdt-file">contextlib.py</span> in <span class="djdt-func">inner</span>(<span class="djdt-lineno">79</span>)
+  <span class="djdt-code">return func(*args, **kwds)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">decorators.py</span> in <span class="djdt-func">_wrapped_view</span>(<span class="djdt-lineno">20</span>)
+  <span class="djdt-code">if test_func(request.user):</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">decorators.py</span> in <span class="djdt-func">&lt;lambda&gt;</span>(<span class="djdt-lineno">44</span>)
+  <span class="djdt-code">lambda u: u.is_authenticated,</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">middleware.py</span> in <span class="djdt-func">&lt;lambda&gt;</span>(<span class="djdt-lineno">23</span>)
+  <span class="djdt-code">request.user = SimpleLazyObject(lambda: get_user(request))</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">middleware.py</span> in <span class="djdt-func">get_user</span>(<span class="djdt-lineno">11</span>)
+  <span class="djdt-code">request._cached_user = auth.get_user(request)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">__init__.py</span> in <span class="djdt-func">get_user</span>(<span class="djdt-lineno">177</span>)
+  <span class="djdt-code">user_id = _get_user_session_key(request)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">__init__.py</span> in <span class="djdt-func">_get_user_session_key</span>(<span class="djdt-lineno">60</span>)
+  <span class="djdt-code">return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/</span><span class="djdt-file">base.py</span> in <span class="djdt-func">__getitem__</span>(<span class="djdt-lineno">65</span>)
+  <span class="djdt-code">return self._session[key]</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/</span><span class="djdt-file">base.py</span> in <span class="djdt-func">_get_session</span>(<span class="djdt-lineno">238</span>)
+  <span class="djdt-code">self._session_cache = self.load()</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/</span><span class="djdt-file">db.py</span> in <span class="djdt-func">load</span>(<span class="djdt-lineno">43</span>)
+  <span class="djdt-code">s = self._get_session_from_db()</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/sessions/backends/</span><span class="djdt-file">db.py</span> in <span class="djdt-func">_get_session_from_db</span>(<span class="djdt-lineno">32</span>)
+  <span class="djdt-code">return self.model.objects.get(</span>
+  
+
+</pre>
+              
+              
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="" id="sqlMain_2">
+          <td><span class="djdt-color" data-djdt-styles="backgroundColor:rgb(256, 0, 0)"></span></td>
+          <td class="djdt-toggle">
+            <button type="button" class="djToggleSwitch" data-toggle-name="sqlMain" data-toggle-id="2">+</button>
+          </td>
+          <td>
+            <div class="djDebugSql"><span class="djDebugCollapsed djdt-hidden"><strong>SELECT</strong> &quot;users_user&quot;.&quot;id&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;password&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;last_login&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;is_superuser&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;username&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;email&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;is_staff&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;is_active&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;date_joined&quot;, <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;users_user&quot;.&quot;name&quot; <strong><br/>&nbsp;&nbsp;FROM</strong> &quot;users_user&quot; <strong><br/>&nbsp;WHERE</strong> &quot;users_user&quot;.&quot;id&quot; = 1 <strong><br/>&nbsp;LIMIT</strong> 21</span><span class="djDebugUncollapsed"><strong>SELECT</strong> &#8226;&#8226;&#8226; <strong>FROM</strong> &quot;users_user&quot; <strong>WHERE</strong> &quot;users_user&quot;.&quot;id&quot; = 1 <strong>LIMIT</strong> 21</span></div>
+            
+            
+          </td>
+          <td>
+            <svg class="djDebugLineChart" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 5" preserveAspectRatio="none" aria-label="23.9996572701568%">
+              <rect x="76.00034272984321" y="0" height="5" width="23.9996572701568" fill="#008000" />
+              
+              
+            </svg>
+          </td>
+          <td class="djdt-time">
+            0.67
+          </td>
+          <td class="djdt-actions">
+            
+              
+                <form method="post">
+                  <input type="hidden" name="signed" value="{&quot;alias&quot;: &quot;default&quot;, &quot;duration&quot;: &quot;0.6678104400634766&quot;, &quot;is_select&quot;: &quot;True&quot;, &quot;is_slow&quot;: &quot;False&quot;, &quot;params&quot;: &quot;[1]&quot;, &quot;raw_params&quot;: &quot;(1,)&quot;, &quot;raw_sql&quot;: &quot;SELECT \&quot;users_user\&quot;.\&quot;id\&quot;, \&quot;users_user\&quot;.\&quot;password\&quot;, \&quot;users_user\&quot;.\&quot;last_login\&quot;, \&quot;users_user\&quot;.\&quot;is_superuser\&quot;, \&quot;users_user\&quot;.\&quot;username\&quot;, \&quot;users_user\&quot;.\&quot;email\&quot;, \&quot;users_user\&quot;.\&quot;is_staff\&quot;, \&quot;users_user\&quot;.\&quot;is_active\&quot;, \&quot;users_user\&quot;.\&quot;date_joined\&quot;, \&quot;users_user\&quot;.\&quot;name\&quot; FROM \&quot;users_user\&quot; WHERE \&quot;users_user\&quot;.\&quot;id\&quot; = %s LIMIT 21&quot;, &quot;sql&quot;: &quot;SELECT \&quot;users_user\&quot;.\&quot;id\&quot;, \&quot;users_user\&quot;.\&quot;password\&quot;, \&quot;users_user\&quot;.\&quot;last_login\&quot;, \&quot;users_user\&quot;.\&quot;is_superuser\&quot;, \&quot;users_user\&quot;.\&quot;username\&quot;, \&quot;users_user\&quot;.\&quot;email\&quot;, \&quot;users_user\&quot;.\&quot;is_staff\&quot;, \&quot;users_user\&quot;.\&quot;is_active\&quot;, \&quot;users_user\&quot;.\&quot;date_joined\&quot;, \&quot;users_user\&quot;.\&quot;name\&quot; FROM \&quot;users_user\&quot; WHERE \&quot;users_user\&quot;.\&quot;id\&quot; = 1 LIMIT 21&quot;, &quot;stacktrace&quot;: &quot;[(&#x27;/usr/local/lib/python3.9/concurrent/futures/thread.py&#x27;, 83, &#x27;_worker&#x27;, &#x27;work_item.run()&#x27;, None), (&#x27;/usr/local/lib/python3.9/concurrent/futures/thread.py&#x27;, 58, &#x27;run&#x27;, &#x27;result = self.fn(*self.args, **self.kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/sync.py&#x27;, 455, &#x27;thread_handler&#x27;, &#x27;return func(*args, **kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/whitenoise/middleware.py&#x27;, 59, &#x27;__call__&#x27;, &#x27;response = self.get_response(request)&#x27;, None), (&#x27;/usr/local/lib/python3.9/cProfile.py&#x27;, 109, &#x27;runcall&#x27;, &#x27;return func(*args, **kw)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/sync.py&#x27;, 194, &#x27;__call__&#x27;, &#x27;current_executor.run_until_future(call_result)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py&#x27;, 62, &#x27;run_until_future&#x27;, &#x27;work_item.run()&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py&#x27;, 22, &#x27;run&#x27;, &#x27;result = self.fn(*self.args, **self.kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/asgiref/sync.py&#x27;, 455, &#x27;thread_handler&#x27;, &#x27;return func(*args, **kwargs)&#x27;, None), (&#x27;/usr/local/lib/python3.9/contextlib.py&#x27;, 79, &#x27;inner&#x27;, &#x27;return func(*args, **kwds)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/decorators.py&#x27;, 20, &#x27;_wrapped_view&#x27;, &#x27;if test_func(request.user):&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/decorators.py&#x27;, 44, &#x27;&lt;lambda&gt;&#x27;, &#x27;lambda u: u.is_authenticated,&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py&#x27;, 23, &#x27;&lt;lambda&gt;&#x27;, &#x27;request.user = SimpleLazyObject(lambda: get_user(request))&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/middleware.py&#x27;, 11, &#x27;get_user&#x27;, &#x27;request._cached_user = auth.get_user(request)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/__init__.py&#x27;, 184, &#x27;get_user&#x27;, &#x27;user = backend.get_user(user_id)&#x27;, None), (&#x27;/usr/local/lib/python3.9/site-packages/django/contrib/auth/backends.py&#x27;, 157, &#x27;get_user&#x27;, &#x27;user = UserModel._default_manager.get(pk=user_id)&#x27;, None)]&quot;, &quot;start_time&quot;: &quot;1643327798.1769814&quot;, &quot;stop_time&quot;: &quot;1643327798.1776493&quot;, &quot;template_info&quot;: &quot;None&quot;, &quot;vendor&quot;: &quot;unknown&quot;}:edJW0_iqzfnjHHjTInOJewxlyUJodP6uKVu2iPLy3Tw">
+                  <button formaction="/__debug__/sql_select/" class="remoteCall">Sel</button>
+                  <button formaction="/__debug__/sql_explain/" class="remoteCall">Expl</button>
+                  
+                </form>
+              
+            
+          </td>
+        </tr>
+        <tr class="djUnselected  djToggleDetails_2" id="sqlDetails_2">
+          <td colspan="2"></td>
+          <td colspan="4">
+            <div class="djSQLDetailsDiv">
+              <p><strong>Connection:</strong> default</p>
+              
+              
+              
+                <pre class="djdt-stack"><span class="djdt-path">/usr/local/lib/python3.9/concurrent/futures/</span><span class="djdt-file">thread.py</span> in <span class="djdt-func">_worker</span>(<span class="djdt-lineno">83</span>)
+  <span class="djdt-code">work_item.run()</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/concurrent/futures/</span><span class="djdt-file">thread.py</span> in <span class="djdt-func">run</span>(<span class="djdt-lineno">58</span>)
+  <span class="djdt-code">result = self.fn(*self.args, **self.kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">thread_handler</span>(<span class="djdt-lineno">455</span>)
+  <span class="djdt-code">return func(*args, **kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/whitenoise/</span><span class="djdt-file">middleware.py</span> in <span class="djdt-func">__call__</span>(<span class="djdt-lineno">59</span>)
+  <span class="djdt-code">response = self.get_response(request)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/</span><span class="djdt-file">cProfile.py</span> in <span class="djdt-func">runcall</span>(<span class="djdt-lineno">109</span>)
+  <span class="djdt-code">return func(*args, **kw)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">__call__</span>(<span class="djdt-lineno">194</span>)
+  <span class="djdt-code">current_executor.run_until_future(call_result)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">current_thread_executor.py</span> in <span class="djdt-func">run_until_future</span>(<span class="djdt-lineno">62</span>)
+  <span class="djdt-code">work_item.run()</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">current_thread_executor.py</span> in <span class="djdt-func">run</span>(<span class="djdt-lineno">22</span>)
+  <span class="djdt-code">result = self.fn(*self.args, **self.kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">thread_handler</span>(<span class="djdt-lineno">455</span>)
+  <span class="djdt-code">return func(*args, **kwargs)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/</span><span class="djdt-file">contextlib.py</span> in <span class="djdt-func">inner</span>(<span class="djdt-lineno">79</span>)
+  <span class="djdt-code">return func(*args, **kwds)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">decorators.py</span> in <span class="djdt-func">_wrapped_view</span>(<span class="djdt-lineno">20</span>)
+  <span class="djdt-code">if test_func(request.user):</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">decorators.py</span> in <span class="djdt-func">&lt;lambda&gt;</span>(<span class="djdt-lineno">44</span>)
+  <span class="djdt-code">lambda u: u.is_authenticated,</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">middleware.py</span> in <span class="djdt-func">&lt;lambda&gt;</span>(<span class="djdt-lineno">23</span>)
+  <span class="djdt-code">request.user = SimpleLazyObject(lambda: get_user(request))</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">middleware.py</span> in <span class="djdt-func">get_user</span>(<span class="djdt-lineno">11</span>)
+  <span class="djdt-code">request._cached_user = auth.get_user(request)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">__init__.py</span> in <span class="djdt-func">get_user</span>(<span class="djdt-lineno">184</span>)
+  <span class="djdt-code">user = backend.get_user(user_id)</span>
+  
+<span class="djdt-path">/usr/local/lib/python3.9/site-packages/django/contrib/auth/</span><span class="djdt-file">backends.py</span> in <span class="djdt-func">get_user</span>(<span class="djdt-lineno">157</span>)
+  <span class="djdt-code">user = UserModel._default_manager.get(pk=user_id)</span>
+  
+
+</pre>
+              
+              
+            </div>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="StaticFilesPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Static files (198 found, 3 used)</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+
+<h4>Static file paths</h4>
+
+  <ol>
+    
+      <li>/app/django_with_react/static</li>
+    
+      <li>/app/django_with_react/djangoapps/frontend/build (prefix reactjs)</li>
+    
+      <li>/app/django_with_react/djangoapps/frontend/build/static (prefix reactjs)</li>
+    
+      <li>/app/django_with_react/djangoapps/frontend/public/assets (prefix reactjs)</li>
+    
+  </ol>
+
+
+<h4>Static file apps</h4>
+
+  <ol>
+    
+      <li>django.contrib.admin</li>
+    
+      <li>rest_framework</li>
+    
+      <li>debug_toolbar</li>
+    
+      <li>django_extensions</li>
+    
+  </ol>
+
+
+<h4>Static files</h4>
+
+  <dl>
+    
+      <dt><strong><a class="toggleTemplate" href="/static/images/favicons/favicon.ico">images/favicons/favicon.ico</a></strong></dt>
+      <dd><samp>/app/django_with_react/static/images/favicons/favicon.ico</samp></dd>
+    
+      <dt><strong><a class="toggleTemplate" href="/static/css/project.css">css/project.css</a></strong></dt>
+      <dd><samp>/app/django_with_react/static/css/project.css</samp></dd>
+    
+      <dt><strong><a class="toggleTemplate" href="/static/js/project.js">js/project.js</a></strong></dt>
+      <dd><samp>/app/django_with_react/static/js/project.js</samp></dd>
+    
+  </dl>
+
+
+
+
+  <h4>django.contrib.staticfiles.finders.FileSystemFinder (25 files)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Path</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>css/project.css</td>
+          <td>/app/django_with_react/static/css/project.css</td>
+        </tr>
+      
+        <tr>
+          <td>fonts/.gitkeep</td>
+          <td>/app/django_with_react/static/fonts/.gitkeep</td>
+        </tr>
+      
+        <tr>
+          <td>images/favicons/favicon.ico</td>
+          <td>/app/django_with_react/static/images/favicons/favicon.ico</td>
+        </tr>
+      
+        <tr>
+          <td>js/project.js</td>
+          <td>/app/django_with_react/static/js/project.js</td>
+        </tr>
+      
+        <tr>
+          <td>sass/custom_bootstrap_vars.scss</td>
+          <td>/app/django_with_react/static/sass/custom_bootstrap_vars.scss</td>
+        </tr>
+      
+        <tr>
+          <td>sass/project.scss</td>
+          <td>/app/django_with_react/static/sass/project.scss</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/.DS_Store</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/.DS_Store</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/asset-manifest.json</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/asset-manifest.json</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/index.html</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/index.html</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/assets/.DS_Store</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/assets/.DS_Store</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/assets/images/batman.jpg</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/assets/images/batman.jpg</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/static/css/main.073c9b0a.css</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/css/main.073c9b0a.css</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/static/css/main.073c9b0a.css.map</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/css/main.073c9b0a.css.map</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/static/js/main.eb038854.js</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/js/main.eb038854.js</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/static/js/main.eb038854.js.LICENSE.txt</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/js/main.eb038854.js.LICENSE.txt</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/static/js/main.eb038854.js.map</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/js/main.eb038854.js.map</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/css/main.073c9b0a.css</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/css/main.073c9b0a.css</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/css/main.073c9b0a.css.map</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/css/main.073c9b0a.css.map</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/js/main.eb038854.js</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/js/main.eb038854.js</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/js/main.eb038854.js.LICENSE.txt</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/js/main.eb038854.js.LICENSE.txt</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/js/main.eb038854.js.map</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/js/main.eb038854.js.map</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg</td>
+          <td>/app/django_with_react/djangoapps/frontend/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/.DS_Store</td>
+          <td>/app/django_with_react/djangoapps/frontend/public/assets/.DS_Store</td>
+        </tr>
+      
+        <tr>
+          <td>reactjs/images/batman.jpg</td>
+          <td>/app/django_with_react/djangoapps/frontend/public/assets/images/batman.jpg</td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+  <h4>django.contrib.staticfiles.finders.AppDirectoriesFinder (173 files)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Path</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>admin/css/responsive.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/responsive.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/base.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/base.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/changelists.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/changelists.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/nav_sidebar.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/nav_sidebar.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/widgets.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/widgets.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/forms.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/forms.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/autocomplete.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/autocomplete.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/rtl.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/rtl.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/responsive_rtl.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/responsive_rtl.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/login.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/login.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/dashboard.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/dashboard.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/fonts.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/fonts.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/vendor/select2/select2.min.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/vendor/select2/select2.min.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/vendor/select2/LICENSE-SELECT2.md</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/vendor/select2/LICENSE-SELECT2.md</td>
+        </tr>
+      
+        <tr>
+          <td>admin/css/vendor/select2/select2.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/css/vendor/select2/select2.css</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/tooltag-arrowright.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/tooltag-arrowright.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/LICENSE</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/LICENSE</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/README.txt</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/README.txt</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-addlink.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-addlink.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-deletelink.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-deletelink.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-unknown-alt.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-unknown-alt.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/calendar-icons.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/calendar-icons.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-changelink.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-changelink.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/tooltag-add.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/tooltag-add.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/sorting-icons.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/sorting-icons.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-unknown.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-unknown.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/search.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/search.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-clock.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-clock.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-yes.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-yes.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-viewlink.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-viewlink.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-calendar.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-calendar.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/inline-delete.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/inline-delete.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-alert.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-alert.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/selector-icons.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/selector-icons.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/icon-no.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/icon-no.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/gis/move_vertex_on.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/gis/move_vertex_on.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/img/gis/move_vertex_off.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/img/gis/move_vertex_off.svg</td>
+        </tr>
+      
+        <tr>
+          <td>admin/fonts/LICENSE.txt</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/fonts/LICENSE.txt</td>
+        </tr>
+      
+        <tr>
+          <td>admin/fonts/README.txt</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/fonts/README.txt</td>
+        </tr>
+      
+        <tr>
+          <td>admin/fonts/Roboto-Bold-webfont.woff</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Bold-webfont.woff</td>
+        </tr>
+      
+        <tr>
+          <td>admin/fonts/Roboto-Regular-webfont.woff</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Regular-webfont.woff</td>
+        </tr>
+      
+        <tr>
+          <td>admin/fonts/Roboto-Light-webfont.woff</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Light-webfont.woff</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/core.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/core.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/collapse.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/collapse.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/SelectBox.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/SelectBox.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/actions.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/actions.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/prepopulate_init.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/prepopulate_init.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/nav_sidebar.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/nav_sidebar.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/calendar.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/calendar.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/cancel.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/cancel.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/SelectFilter2.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/SelectFilter2.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/prepopulate.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/prepopulate.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/popup_response.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/popup_response.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/change_form.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/change_form.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/autocomplete.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/autocomplete.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/jquery.init.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/jquery.init.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/inlines.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/inlines.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/urlify.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/urlify.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/xregexp/LICENSE.txt</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/LICENSE.txt</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/xregexp/xregexp.min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.min.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/xregexp/xregexp.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/LICENSE.md</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/LICENSE.md</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/select2.full.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/select2.full.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/select2.full.min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/select2.full.min.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/is.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/is.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/pt.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/pt.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/pl.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/pl.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/uk.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/uk.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/pt-BR.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/pt-BR.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/hu.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hu.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ko.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ko.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/hy.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hy.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/bs.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/bs.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/en.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/en.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/de.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/de.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/sq.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sq.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/et.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/et.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/mk.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/mk.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/tk.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/tk.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/sv.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sv.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/hsb.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hsb.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/hr.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hr.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/az.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/az.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/fi.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/fi.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/lv.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/lv.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/sk.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sk.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/it.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/it.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/nl.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/nl.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/vi.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/vi.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/tr.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/tr.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ja.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ja.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/th.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/th.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/gl.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/gl.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/af.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/af.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/eu.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/eu.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/el.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/el.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ar.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ar.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ms.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ms.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/he.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/he.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/zh-TW.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/zh-TW.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/bg.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/bg.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/es.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/es.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/bn.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/bn.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ru.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ru.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/lt.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/lt.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/cs.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/cs.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ka.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ka.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/km.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/km.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/id.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/id.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/sr.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sr.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/fr.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/fr.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ca.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ca.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/nb.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/nb.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/hi.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hi.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ne.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ne.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/da.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/da.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/sr-Cyrl.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sr-Cyrl.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/fa.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/fa.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/dsb.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/dsb.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ps.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ps.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/zh-CN.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/zh-CN.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/sl.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sl.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/select2/i18n/ro.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ro.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/jquery/jquery.min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.min.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/jquery/LICENSE.txt</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/LICENSE.txt</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/vendor/jquery/jquery.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/admin/DateTimeShortcuts.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/admin/DateTimeShortcuts.js</td>
+        </tr>
+      
+        <tr>
+          <td>admin/js/admin/RelatedObjectLookups.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django/contrib/admin/static/admin/js/admin/RelatedObjectLookups.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/css/bootstrap-theme.min.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/css/bootstrap-theme.min.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/css/font-awesome-4.0.3.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/css/font-awesome-4.0.3.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/css/prettify.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/css/prettify.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/css/bootstrap-tweaks.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/css/bootstrap-tweaks.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/css/bootstrap.min.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/css/bootstrap.min.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/css/default.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/css/default.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/css/highlight.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/css/highlight.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/css/base.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/css/base.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/css/jquery.json-view.min.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/css/jquery.json-view.min.css</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/img/favicon.ico</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/img/favicon.ico</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/img/grid.png</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/img/grid.png</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/js/highlight.pack.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/js/highlight.pack.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/js/api.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/js/api.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/docs/js/jquery.json-view.min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/docs/js/jquery.json-view.min.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/img/glyphicons-halflings.png</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/img/glyphicons-halflings.png</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/img/glyphicons-halflings-white.png</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/img/glyphicons-halflings-white.png</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/img/grid.png</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/img/grid.png</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/fontawesome-webfont.ttf</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/fontawesome-webfont.ttf</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/fontawesome-webfont.eot</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/fontawesome-webfont.eot</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/glyphicons-halflings-regular.woff</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/glyphicons-halflings-regular.woff</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/glyphicons-halflings-regular.woff2</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/glyphicons-halflings-regular.woff2</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/fontawesome-webfont.woff</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/fontawesome-webfont.woff</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/fontawesome-webfont.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/fontawesome-webfont.svg</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/glyphicons-halflings-regular.eot</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/glyphicons-halflings-regular.eot</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/glyphicons-halflings-regular.svg</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/glyphicons-halflings-regular.svg</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/fonts/glyphicons-halflings-regular.ttf</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/fonts/glyphicons-halflings-regular.ttf</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/default.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/default.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/bootstrap.min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/bootstrap.min.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/csrf.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/csrf.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/jquery-3.5.1.min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/jquery-3.5.1.min.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/coreapi-0.1.1.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/coreapi-0.1.1.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/prettify-min.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/prettify-min.js</td>
+        </tr>
+      
+        <tr>
+          <td>rest_framework/js/ajax-form.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/rest_framework/static/rest_framework/js/ajax-form.js</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/css/print.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/css/print.css</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/css/toolbar.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/css/toolbar.css</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/js/toolbar.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/js/toolbar.js</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/js/utils.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/js/utils.js</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/js/timer.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/js/timer.js</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/js/history.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/js/history.js</td>
+        </tr>
+      
+        <tr>
+          <td>debug_toolbar/js/redirect.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/debug_toolbar/static/debug_toolbar/js/redirect.js</td>
+        </tr>
+      
+        <tr>
+          <td>django_extensions/css/jquery.autocomplete.css</td>
+          <td>/usr/local/lib/python3.9/site-packages/django_extensions/static/django_extensions/css/jquery.autocomplete.css</td>
+        </tr>
+      
+        <tr>
+          <td>django_extensions/img/indicator.gif</td>
+          <td>/usr/local/lib/python3.9/site-packages/django_extensions/static/django_extensions/img/indicator.gif</td>
+        </tr>
+      
+        <tr>
+          <td>django_extensions/js/jquery.bgiframe.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django_extensions/static/django_extensions/js/jquery.bgiframe.js</td>
+        </tr>
+      
+        <tr>
+          <td>django_extensions/js/jquery.ajaxQueue.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django_extensions/static/django_extensions/js/jquery.ajaxQueue.js</td>
+        </tr>
+      
+        <tr>
+          <td>django_extensions/js/jquery.autocomplete.js</td>
+          <td>/usr/local/lib/python3.9/site-packages/django_extensions/static/django_extensions/js/jquery.autocomplete.js</td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="TemplatesPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Templates (2 rendered)</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<h4>Template path</h4>
+
+  <ol>
+    
+      <li>/app/django_with_react/templates</li>
+    
+  </ol>
+
+
+<h4>Templates</h4>
+
+  <dl>
+    
+      <dt><strong><a class="remoteCall toggleTemplate" href="/__debug__/template_source/?template=index.html&amp;template_origin=Ii9hcHAvZGphbmdvX3dpdGhfcmVhY3QvZGphbmdvYXBwcy9mcm9udGVuZC90ZW1wbGF0ZXMvaW5kZXguaHRtbCI:1nDEd4:7dy0y7bBJyiOWdhhPINpR0KQpCXRdMuJs846kdf9puc">index.html</a></strong></dt>
+      <dd><samp>/app/django_with_react/djangoapps/frontend/templates/index.html</samp></dd>
+      
+        <dd>
+          <details>
+            <summary>Toggle context</summary>
+            <code class="djTemplateContext">{&#x27;False&#x27;: False, &#x27;None&#x27;: None, &#x27;True&#x27;: True}
+{&#x27;ACCOUNT_ALLOW_REGISTRATION&#x27;: True,
+ &#x27;DEFAULT_MESSAGE_LEVELS&#x27;: {&#x27;DEBUG&#x27;: 10,
+                            &#x27;ERROR&#x27;: 40,
+                            &#x27;INFO&#x27;: 20,
+                            &#x27;SUCCESS&#x27;: 25,
+                            &#x27;WARNING&#x27;: 30},
+ &#x27;LANGUAGES&#x27;: [(&#x27;af&#x27;, &#x27;Afrikaans&#x27;),
+               (&#x27;ar&#x27;, &#x27;Arabic&#x27;),
+               (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;),
+               (&#x27;ast&#x27;, &#x27;Asturian&#x27;),
+               (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;),
+               (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;),
+               (&#x27;be&#x27;, &#x27;Belarusian&#x27;),
+               (&#x27;bn&#x27;, &#x27;Bengali&#x27;),
+               (&#x27;br&#x27;, &#x27;Breton&#x27;),
+               (&#x27;bs&#x27;, &#x27;Bosnian&#x27;),
+               (&#x27;ca&#x27;, &#x27;Catalan&#x27;),
+               (&#x27;cs&#x27;, &#x27;Czech&#x27;),
+               (&#x27;cy&#x27;, &#x27;Welsh&#x27;),
+               (&#x27;da&#x27;, &#x27;Danish&#x27;),
+               (&#x27;de&#x27;, &#x27;German&#x27;),
+               (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;),
+               (&#x27;el&#x27;, &#x27;Greek&#x27;),
+               (&#x27;en&#x27;, &#x27;English&#x27;),
+               (&#x27;en-au&#x27;, &#x27;Australian English&#x27;),
+               (&#x27;en-gb&#x27;, &#x27;British English&#x27;),
+               (&#x27;eo&#x27;, &#x27;Esperanto&#x27;),
+               (&#x27;es&#x27;, &#x27;Spanish&#x27;),
+               (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;),
+               (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;),
+               (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;),
+               (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;),
+               (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;),
+               (&#x27;et&#x27;, &#x27;Estonian&#x27;),
+               (&#x27;eu&#x27;, &#x27;Basque&#x27;),
+               (&#x27;fa&#x27;, &#x27;Persian&#x27;),
+               (&#x27;fi&#x27;, &#x27;Finnish&#x27;),
+               (&#x27;fr&#x27;, &#x27;French&#x27;),
+               (&#x27;fy&#x27;, &#x27;Frisian&#x27;),
+               (&#x27;ga&#x27;, &#x27;Irish&#x27;),
+               (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;),
+               (&#x27;gl&#x27;, &#x27;Galician&#x27;),
+               (&#x27;he&#x27;, &#x27;Hebrew&#x27;),
+               (&#x27;hi&#x27;, &#x27;Hindi&#x27;),
+               (&#x27;hr&#x27;, &#x27;Croatian&#x27;),
+               (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;),
+               (&#x27;hu&#x27;, &#x27;Hungarian&#x27;),
+               (&#x27;hy&#x27;, &#x27;Armenian&#x27;),
+               (&#x27;ia&#x27;, &#x27;Interlingua&#x27;),
+               (&#x27;id&#x27;, &#x27;Indonesian&#x27;),
+               (&#x27;ig&#x27;, &#x27;Igbo&#x27;),
+               (&#x27;io&#x27;, &#x27;Ido&#x27;),
+               (&#x27;is&#x27;, &#x27;Icelandic&#x27;),
+               (&#x27;it&#x27;, &#x27;Italian&#x27;),
+               (&#x27;ja&#x27;, &#x27;Japanese&#x27;),
+               (&#x27;ka&#x27;, &#x27;Georgian&#x27;),
+               (&#x27;kab&#x27;, &#x27;Kabyle&#x27;),
+               (&#x27;kk&#x27;, &#x27;Kazakh&#x27;),
+               (&#x27;km&#x27;, &#x27;Khmer&#x27;),
+               (&#x27;kn&#x27;, &#x27;Kannada&#x27;),
+               (&#x27;ko&#x27;, &#x27;Korean&#x27;),
+               (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;),
+               (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;),
+               (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;),
+               (&#x27;lv&#x27;, &#x27;Latvian&#x27;),
+               (&#x27;mk&#x27;, &#x27;Macedonian&#x27;),
+               (&#x27;ml&#x27;, &#x27;Malayalam&#x27;),
+               (&#x27;mn&#x27;, &#x27;Mongolian&#x27;),
+               (&#x27;mr&#x27;, &#x27;Marathi&#x27;),
+               (&#x27;my&#x27;, &#x27;Burmese&#x27;),
+               (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;),
+               (&#x27;ne&#x27;, &#x27;Nepali&#x27;),
+               (&#x27;nl&#x27;, &#x27;Dutch&#x27;),
+               (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;),
+               (&#x27;os&#x27;, &#x27;Ossetic&#x27;),
+               (&#x27;pa&#x27;, &#x27;Punjabi&#x27;),
+               (&#x27;pl&#x27;, &#x27;Polish&#x27;),
+               (&#x27;pt&#x27;, &#x27;Portuguese&#x27;),
+               (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;),
+               (&#x27;ro&#x27;, &#x27;Romanian&#x27;),
+               (&#x27;ru&#x27;, &#x27;Russian&#x27;),
+               (&#x27;sk&#x27;, &#x27;Slovak&#x27;),
+               (&#x27;sl&#x27;, &#x27;Slovenian&#x27;),
+               (&#x27;sq&#x27;, &#x27;Albanian&#x27;),
+               (&#x27;sr&#x27;, &#x27;Serbian&#x27;),
+               (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;),
+               (&#x27;sv&#x27;, &#x27;Swedish&#x27;),
+               (&#x27;sw&#x27;, &#x27;Swahili&#x27;),
+               (&#x27;ta&#x27;, &#x27;Tamil&#x27;),
+               (&#x27;te&#x27;, &#x27;Telugu&#x27;),
+               (&#x27;tg&#x27;, &#x27;Tajik&#x27;),
+               (&#x27;th&#x27;, &#x27;Thai&#x27;),
+               (&#x27;tk&#x27;, &#x27;Turkmen&#x27;),
+               (&#x27;tr&#x27;, &#x27;Turkish&#x27;),
+               (&#x27;tt&#x27;, &#x27;Tatar&#x27;),
+               (&#x27;udm&#x27;, &#x27;Udmurt&#x27;),
+               (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;),
+               (&#x27;ur&#x27;, &#x27;Urdu&#x27;),
+               (&#x27;uz&#x27;, &#x27;Uzbek&#x27;),
+               (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;),
+               (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;),
+               (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)],
+ &#x27;LANGUAGE_BIDI&#x27;: False,
+ &#x27;LANGUAGE_CODE&#x27;: &#x27;en&#x27;,
+ &#x27;MEDIA_URL&#x27;: &#x27;/media/&#x27;,
+ &#x27;STATIC_URL&#x27;: &#x27;/static/&#x27;,
+ &#x27;TIME_ZONE&#x27;: &#x27;UTC&#x27;,
+ &#x27;csrf_token&#x27;: &lt;SimpleLazyObject: &#x27;hRdfZ8Xma5EJyQ27XoMjdKvuDfU5QgmKFcozd3kYOSTCOwztueCDBBzleg6FdH5O&#x27;&gt;,
+ &#x27;debug&#x27;: True,
+ &#x27;messages&#x27;: &lt;django.contrib.messages.storage.fallback.FallbackStorage object at 0xffffa25f5370&gt;,
+ &#x27;perms&#x27;: &lt;django.contrib.auth.context_processors.PermWrapper object at 0xffffa03d03d0&gt;,
+ &#x27;request&#x27;: &#x27;&lt;&lt;request&gt;&gt;&#x27;,
+ &#x27;sql_queries&#x27;: &lt;function debug.&lt;locals&gt;.&lt;lambda&gt; at 0xffff9bfa89d0&gt;,
+ &#x27;user&#x27;: &lt;SimpleLazyObject: &lt;User: admin&gt;&gt;}
+{&#x27;react_css_bundle&#x27;: &#x27;/static/css/main.073c9b0a.css&#x27;,
+ &#x27;react_js_bundle&#x27;: &#x27;/static/js/main.eb038854.js&#x27;}</code>
+          </details>
+        </dd>
+      
+    
+      <dt><strong><a class="remoteCall toggleTemplate" href="/__debug__/template_source/?template=base.html&amp;template_origin=Ii9hcHAvZGphbmdvX3dpdGhfcmVhY3QvdGVtcGxhdGVzL2Jhc2UuaHRtbCI:1nDEd4:tyrWef56uGncW5oVt0rg7lxffkxmfYiKss-NQq3IuYU">base.html</a></strong></dt>
+      <dd><samp>/app/django_with_react/templates/base.html</samp></dd>
+      
+        <dd>
+          <details>
+            <summary>Toggle context</summary>
+            <code class="djTemplateContext">{&#x27;False&#x27;: False, &#x27;None&#x27;: None, &#x27;True&#x27;: True}
+{&#x27;ACCOUNT_ALLOW_REGISTRATION&#x27;: True,
+ &#x27;DEFAULT_MESSAGE_LEVELS&#x27;: {&#x27;DEBUG&#x27;: 10,
+                            &#x27;ERROR&#x27;: 40,
+                            &#x27;INFO&#x27;: 20,
+                            &#x27;SUCCESS&#x27;: 25,
+                            &#x27;WARNING&#x27;: 30},
+ &#x27;LANGUAGES&#x27;: [(&#x27;af&#x27;, &#x27;Afrikaans&#x27;),
+               (&#x27;ar&#x27;, &#x27;Arabic&#x27;),
+               (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;),
+               (&#x27;ast&#x27;, &#x27;Asturian&#x27;),
+               (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;),
+               (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;),
+               (&#x27;be&#x27;, &#x27;Belarusian&#x27;),
+               (&#x27;bn&#x27;, &#x27;Bengali&#x27;),
+               (&#x27;br&#x27;, &#x27;Breton&#x27;),
+               (&#x27;bs&#x27;, &#x27;Bosnian&#x27;),
+               (&#x27;ca&#x27;, &#x27;Catalan&#x27;),
+               (&#x27;cs&#x27;, &#x27;Czech&#x27;),
+               (&#x27;cy&#x27;, &#x27;Welsh&#x27;),
+               (&#x27;da&#x27;, &#x27;Danish&#x27;),
+               (&#x27;de&#x27;, &#x27;German&#x27;),
+               (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;),
+               (&#x27;el&#x27;, &#x27;Greek&#x27;),
+               (&#x27;en&#x27;, &#x27;English&#x27;),
+               (&#x27;en-au&#x27;, &#x27;Australian English&#x27;),
+               (&#x27;en-gb&#x27;, &#x27;British English&#x27;),
+               (&#x27;eo&#x27;, &#x27;Esperanto&#x27;),
+               (&#x27;es&#x27;, &#x27;Spanish&#x27;),
+               (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;),
+               (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;),
+               (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;),
+               (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;),
+               (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;),
+               (&#x27;et&#x27;, &#x27;Estonian&#x27;),
+               (&#x27;eu&#x27;, &#x27;Basque&#x27;),
+               (&#x27;fa&#x27;, &#x27;Persian&#x27;),
+               (&#x27;fi&#x27;, &#x27;Finnish&#x27;),
+               (&#x27;fr&#x27;, &#x27;French&#x27;),
+               (&#x27;fy&#x27;, &#x27;Frisian&#x27;),
+               (&#x27;ga&#x27;, &#x27;Irish&#x27;),
+               (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;),
+               (&#x27;gl&#x27;, &#x27;Galician&#x27;),
+               (&#x27;he&#x27;, &#x27;Hebrew&#x27;),
+               (&#x27;hi&#x27;, &#x27;Hindi&#x27;),
+               (&#x27;hr&#x27;, &#x27;Croatian&#x27;),
+               (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;),
+               (&#x27;hu&#x27;, &#x27;Hungarian&#x27;),
+               (&#x27;hy&#x27;, &#x27;Armenian&#x27;),
+               (&#x27;ia&#x27;, &#x27;Interlingua&#x27;),
+               (&#x27;id&#x27;, &#x27;Indonesian&#x27;),
+               (&#x27;ig&#x27;, &#x27;Igbo&#x27;),
+               (&#x27;io&#x27;, &#x27;Ido&#x27;),
+               (&#x27;is&#x27;, &#x27;Icelandic&#x27;),
+               (&#x27;it&#x27;, &#x27;Italian&#x27;),
+               (&#x27;ja&#x27;, &#x27;Japanese&#x27;),
+               (&#x27;ka&#x27;, &#x27;Georgian&#x27;),
+               (&#x27;kab&#x27;, &#x27;Kabyle&#x27;),
+               (&#x27;kk&#x27;, &#x27;Kazakh&#x27;),
+               (&#x27;km&#x27;, &#x27;Khmer&#x27;),
+               (&#x27;kn&#x27;, &#x27;Kannada&#x27;),
+               (&#x27;ko&#x27;, &#x27;Korean&#x27;),
+               (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;),
+               (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;),
+               (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;),
+               (&#x27;lv&#x27;, &#x27;Latvian&#x27;),
+               (&#x27;mk&#x27;, &#x27;Macedonian&#x27;),
+               (&#x27;ml&#x27;, &#x27;Malayalam&#x27;),
+               (&#x27;mn&#x27;, &#x27;Mongolian&#x27;),
+               (&#x27;mr&#x27;, &#x27;Marathi&#x27;),
+               (&#x27;my&#x27;, &#x27;Burmese&#x27;),
+               (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;),
+               (&#x27;ne&#x27;, &#x27;Nepali&#x27;),
+               (&#x27;nl&#x27;, &#x27;Dutch&#x27;),
+               (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;),
+               (&#x27;os&#x27;, &#x27;Ossetic&#x27;),
+               (&#x27;pa&#x27;, &#x27;Punjabi&#x27;),
+               (&#x27;pl&#x27;, &#x27;Polish&#x27;),
+               (&#x27;pt&#x27;, &#x27;Portuguese&#x27;),
+               (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;),
+               (&#x27;ro&#x27;, &#x27;Romanian&#x27;),
+               (&#x27;ru&#x27;, &#x27;Russian&#x27;),
+               (&#x27;sk&#x27;, &#x27;Slovak&#x27;),
+               (&#x27;sl&#x27;, &#x27;Slovenian&#x27;),
+               (&#x27;sq&#x27;, &#x27;Albanian&#x27;),
+               (&#x27;sr&#x27;, &#x27;Serbian&#x27;),
+               (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;),
+               (&#x27;sv&#x27;, &#x27;Swedish&#x27;),
+               (&#x27;sw&#x27;, &#x27;Swahili&#x27;),
+               (&#x27;ta&#x27;, &#x27;Tamil&#x27;),
+               (&#x27;te&#x27;, &#x27;Telugu&#x27;),
+               (&#x27;tg&#x27;, &#x27;Tajik&#x27;),
+               (&#x27;th&#x27;, &#x27;Thai&#x27;),
+               (&#x27;tk&#x27;, &#x27;Turkmen&#x27;),
+               (&#x27;tr&#x27;, &#x27;Turkish&#x27;),
+               (&#x27;tt&#x27;, &#x27;Tatar&#x27;),
+               (&#x27;udm&#x27;, &#x27;Udmurt&#x27;),
+               (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;),
+               (&#x27;ur&#x27;, &#x27;Urdu&#x27;),
+               (&#x27;uz&#x27;, &#x27;Uzbek&#x27;),
+               (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;),
+               (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;),
+               (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)],
+ &#x27;LANGUAGE_BIDI&#x27;: False,
+ &#x27;LANGUAGE_CODE&#x27;: &#x27;en&#x27;,
+ &#x27;MEDIA_URL&#x27;: &#x27;/media/&#x27;,
+ &#x27;STATIC_URL&#x27;: &#x27;/static/&#x27;,
+ &#x27;TIME_ZONE&#x27;: &#x27;UTC&#x27;,
+ &#x27;csrf_token&#x27;: &lt;SimpleLazyObject: &#x27;hRdfZ8Xma5EJyQ27XoMjdKvuDfU5QgmKFcozd3kYOSTCOwztueCDBBzleg6FdH5O&#x27;&gt;,
+ &#x27;debug&#x27;: True,
+ &#x27;messages&#x27;: &lt;django.contrib.messages.storage.fallback.FallbackStorage object at 0xffffa25f5370&gt;,
+ &#x27;perms&#x27;: &lt;django.contrib.auth.context_processors.PermWrapper object at 0xffffa03d03d0&gt;,
+ &#x27;request&#x27;: &#x27;&lt;&lt;request&gt;&gt;&#x27;,
+ &#x27;sql_queries&#x27;: &lt;function debug.&lt;locals&gt;.&lt;lambda&gt; at 0xffff9bfa89d0&gt;,
+ &#x27;user&#x27;: &lt;SimpleLazyObject: &lt;User: admin&gt;&gt;}
+{&#x27;react_css_bundle&#x27;: &#x27;/static/css/main.073c9b0a.css&#x27;,
+ &#x27;react_js_bundle&#x27;: &#x27;/static/js/main.eb038854.js&#x27;}</code>
+          </details>
+        </dd>
+      
+    
+  </dl>
+
+
+<h4>Context processors</h4>
+
+  <dl>
+    
+      <dt><strong>django.template.context_processors.csrf</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;csrf_token&#x27;: &lt;SimpleLazyObject: &#x27;hRdfZ8Xma5EJyQ27XoMjdKvuDfU5QgmKFcozd3kYOSTCOwztueCDBBzleg6FdH5O&#x27;&gt;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.template.context_processors.debug</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;debug&#x27;: True, &#x27;sql_queries&#x27;: &lt;function debug.&lt;locals&gt;.&lt;lambda&gt; at 0xffff9bfa89d0&gt;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.template.context_processors.request</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;request&#x27;: &lt;ASGIRequest: GET &#x27;/app&#x27;&gt;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.contrib.auth.context_processors.auth</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;user&#x27;: &lt;SimpleLazyObject: &lt;User: admin&gt;&gt;, &#x27;perms&#x27;: &lt;django.contrib.auth.context_processors.PermWrapper object at 0xffffa03d03d0&gt;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.template.context_processors.i18n</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;LANGUAGES&#x27;: [(&#x27;af&#x27;, &#x27;Afrikaans&#x27;), (&#x27;ar&#x27;, &#x27;Arabic&#x27;), (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;), (&#x27;ast&#x27;, &#x27;Asturian&#x27;), (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;), (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;), (&#x27;be&#x27;, &#x27;Belarusian&#x27;), (&#x27;bn&#x27;, &#x27;Bengali&#x27;), (&#x27;br&#x27;, &#x27;Breton&#x27;), (&#x27;bs&#x27;, &#x27;Bosnian&#x27;), (&#x27;ca&#x27;, &#x27;Catalan&#x27;), (&#x27;cs&#x27;, &#x27;Czech&#x27;), (&#x27;cy&#x27;, &#x27;Welsh&#x27;), (&#x27;da&#x27;, &#x27;Danish&#x27;), (&#x27;de&#x27;, &#x27;German&#x27;), (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;), (&#x27;el&#x27;, &#x27;Greek&#x27;), (&#x27;en&#x27;, &#x27;English&#x27;), (&#x27;en-au&#x27;, &#x27;Australian English&#x27;), (&#x27;en-gb&#x27;, &#x27;British English&#x27;), (&#x27;eo&#x27;, &#x27;Esperanto&#x27;), (&#x27;es&#x27;, &#x27;Spanish&#x27;), (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;), (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;), (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;), (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;), (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;), (&#x27;et&#x27;, &#x27;Estonian&#x27;), (&#x27;eu&#x27;, &#x27;Basque&#x27;), (&#x27;fa&#x27;, &#x27;Persian&#x27;), (&#x27;fi&#x27;, &#x27;Finnish&#x27;), (&#x27;fr&#x27;, &#x27;French&#x27;), (&#x27;fy&#x27;, &#x27;Frisian&#x27;), (&#x27;ga&#x27;, &#x27;Irish&#x27;), (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;), (&#x27;gl&#x27;, &#x27;Galician&#x27;), (&#x27;he&#x27;, &#x27;Hebrew&#x27;), (&#x27;hi&#x27;, &#x27;Hindi&#x27;), (&#x27;hr&#x27;, &#x27;Croatian&#x27;), (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;), (&#x27;hu&#x27;, &#x27;Hungarian&#x27;), (&#x27;hy&#x27;, &#x27;Armenian&#x27;), (&#x27;ia&#x27;, &#x27;Interlingua&#x27;), (&#x27;id&#x27;, &#x27;Indonesian&#x27;), (&#x27;ig&#x27;, &#x27;Igbo&#x27;), (&#x27;io&#x27;, &#x27;Ido&#x27;), (&#x27;is&#x27;, &#x27;Icelandic&#x27;), (&#x27;it&#x27;, &#x27;Italian&#x27;), (&#x27;ja&#x27;, &#x27;Japanese&#x27;), (&#x27;ka&#x27;, &#x27;Georgian&#x27;), (&#x27;kab&#x27;, &#x27;Kabyle&#x27;), (&#x27;kk&#x27;, &#x27;Kazakh&#x27;), (&#x27;km&#x27;, &#x27;Khmer&#x27;), (&#x27;kn&#x27;, &#x27;Kannada&#x27;), (&#x27;ko&#x27;, &#x27;Korean&#x27;), (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;), (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;), (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;), (&#x27;lv&#x27;, &#x27;Latvian&#x27;), (&#x27;mk&#x27;, &#x27;Macedonian&#x27;), (&#x27;ml&#x27;, &#x27;Malayalam&#x27;), (&#x27;mn&#x27;, &#x27;Mongolian&#x27;), (&#x27;mr&#x27;, &#x27;Marathi&#x27;), (&#x27;my&#x27;, &#x27;Burmese&#x27;), (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;), (&#x27;ne&#x27;, &#x27;Nepali&#x27;), (&#x27;nl&#x27;, &#x27;Dutch&#x27;), (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;), (&#x27;os&#x27;, &#x27;Ossetic&#x27;), (&#x27;pa&#x27;, &#x27;Punjabi&#x27;), (&#x27;pl&#x27;, &#x27;Polish&#x27;), (&#x27;pt&#x27;, &#x27;Portuguese&#x27;), (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;), (&#x27;ro&#x27;, &#x27;Romanian&#x27;), (&#x27;ru&#x27;, &#x27;Russian&#x27;), (&#x27;sk&#x27;, &#x27;Slovak&#x27;), (&#x27;sl&#x27;, &#x27;Slovenian&#x27;), (&#x27;sq&#x27;, &#x27;Albanian&#x27;), (&#x27;sr&#x27;, &#x27;Serbian&#x27;), (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;), (&#x27;sv&#x27;, &#x27;Swedish&#x27;), (&#x27;sw&#x27;, &#x27;Swahili&#x27;), (&#x27;ta&#x27;, &#x27;Tamil&#x27;), (&#x27;te&#x27;, &#x27;Telugu&#x27;), (&#x27;tg&#x27;, &#x27;Tajik&#x27;), (&#x27;th&#x27;, &#x27;Thai&#x27;), (&#x27;tk&#x27;, &#x27;Turkmen&#x27;), (&#x27;tr&#x27;, &#x27;Turkish&#x27;), (&#x27;tt&#x27;, &#x27;Tatar&#x27;), (&#x27;udm&#x27;, &#x27;Udmurt&#x27;), (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;), (&#x27;ur&#x27;, &#x27;Urdu&#x27;), (&#x27;uz&#x27;, &#x27;Uzbek&#x27;), (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;), (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;), (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)], &#x27;LANGUAGE_CODE&#x27;: &#x27;en&#x27;, &#x27;LANGUAGE_BIDI&#x27;: False}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.template.context_processors.media</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;MEDIA_URL&#x27;: &#x27;/media/&#x27;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.template.context_processors.static</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;STATIC_URL&#x27;: &#x27;/static/&#x27;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.template.context_processors.tz</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;TIME_ZONE&#x27;: &#x27;UTC&#x27;}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django.contrib.messages.context_processors.messages</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;messages&#x27;: &lt;django.contrib.messages.storage.fallback.FallbackStorage object at 0xffffa25f5370&gt;, &#x27;DEFAULT_MESSAGE_LEVELS&#x27;: {&#x27;DEBUG&#x27;: 10, &#x27;INFO&#x27;: 20, &#x27;SUCCESS&#x27;: 25, &#x27;WARNING&#x27;: 30, &#x27;ERROR&#x27;: 40}}</code>
+        </details>
+      </dd>
+    
+      <dt><strong>django_with_react.djangoapps.users.context_processors.allauth_settings</strong></dt>
+      <dd>
+        <details>
+          <summary>Toggle context</summary>
+          <code class="djTemplateContext">{&#x27;ACCOUNT_ALLOW_REGISTRATION&#x27;: True}</code>
+        </details>
+      </dd>
+    
+  </dl>
+
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="CachePanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Cache calls from 1 backend</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<h4>Summary</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Total calls</th>
+      <th>Total time</th>
+      <th>Cache hits</th>
+      <th>Cache misses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0 ms</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<h4>Commands</h4>
+<table>
+  <thead>
+    <tr>
+      
+        <th>add</th>
+      
+        <th>get</th>
+      
+        <th>set</th>
+      
+        <th>touch</th>
+      
+        <th>delete</th>
+      
+        <th>clear</th>
+      
+        <th>get_many</th>
+      
+        <th>set_many</th>
+      
+        <th>delete_many</th>
+      
+        <th>has_key</th>
+      
+        <th>incr</th>
+      
+        <th>decr</th>
+      
+        <th>incr_version</th>
+      
+        <th>decr_version</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+        <td>0</td>
+      
+    </tr>
+  </tbody>
+</table>
+
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="SignalsPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Signals</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Signal</th>
+      <th>Receivers</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr>
+        <td>class_prepared</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>connection_created</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>got_request_exception</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>m2m_changed</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>post_delete</td>
+        <td>ModelBase.update_changed, ModelBase.update_changed, ModelBase.update_changed</td>
+      </tr>
+    
+      <tr>
+        <td>post_init</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>post_migrate</td>
+        <td>create_permissions, create_contenttypes, create_default_site</td>
+      </tr>
+    
+      <tr>
+        <td>post_save</td>
+        <td>ModelBase.update_changed, ModelBase.update_changed, ModelBase.update_changed, ModelBase.update_changed</td>
+      </tr>
+    
+      <tr>
+        <td>pre_delete</td>
+        <td>clear_site_cache, ModelBase.changed, ModelBase.update_changed</td>
+      </tr>
+    
+      <tr>
+        <td>pre_init</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>pre_migrate</td>
+        <td>inject_rename_contenttypes_operations</td>
+      </tr>
+    
+      <tr>
+        <td>pre_save</td>
+        <td>clear_site_cache, ModelBase.changed</td>
+      </tr>
+    
+      <tr>
+        <td>request_finished</td>
+        <td>close_old_connections, close_caches, reset_urlconf</td>
+      </tr>
+    
+      <tr>
+        <td>request_started</td>
+        <td>reset_queries, close_old_connections</td>
+      </tr>
+    
+      <tr>
+        <td>setting_changed</td>
+        <td>reset_cache, clear_cache_handlers, update_installed_apps, update_connections_time_zone, clear_routers_cache, reset_template_engines, clear_serializers_cache, language_changed, localize_settings_changed, file_storage_changed, complex_setting_changed, root_urlconf_changed, static_storage_changed, static_finders_changed, auth_password_validators_changed, user_model_swapped, reset_hashers, reload_api_settings, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, FileSystemStorage._clear_cached_properties, CompressorFileStorage._clear_cached_properties, StaticFilesStorage._clear_cached_properties</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+  <div id="LoggingPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Log messages</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+
+  <p>No messages logged.</p>
+
+</div>
+      
+    </div>
+  </div>
+
+
+  
+    
+
+
+
+  
+    
+
+
+  <div id="ProfilingPanel" class="djdt-panelContent djdt-hidden">
+    <div class="djDebugPanelTitle">
+      <button type="button" class="djDebugClose">×</button>
+      <h3>Profiling</h3>
+    </div>
+    <div class="djDebugPanelContent">
+      
+        <div class="djdt-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>Call</th>
+      <th>CumTime</th>
+      <th>Per</th>
+      <th>TotTime</th>
+      <th>Per</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr class="" id="profilingMain_0">
+        <td>
+          <div data-djdt-styles="paddingLeft:0px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/debug_toolbar/panels/</span><span class="djdt-file">__init__.py</span> in <span class="djdt-func">process_request</span>(<span class="djdt-lineno">184</span>)</span>
+          </div>
+        </td>
+        <td>0.063</td>
+        <td>0.063</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0" id="profilingMain_0_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:16px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">__call__</span>(<span class="djdt-lineno">137</span>)</span>
+          </div>
+        </td>
+        <td>0.063</td>
+        <td>0.063</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1" id="profilingMain_0_1_3">
+        <td>
+          <div data-djdt-styles="paddingLeft:32px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/asgiref/</span><span class="djdt-file">current_thread_executor.py</span> in <span class="djdt-func">run_until_future</span>(<span class="djdt-lineno">43</span>)</span>
+          </div>
+        </td>
+        <td>0.062</td>
+        <td>0.062</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3" id="profilingMain_0_1_3_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:48px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/asgiref/</span><span class="djdt-file">current_thread_executor.py</span> in <span class="djdt-func">run</span>(<span class="djdt-lineno">18</span>)</span>
+          </div>
+        </td>
+        <td>0.061</td>
+        <td>0.020</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>3</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1" id="profilingMain_0_1_3_1_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:64px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/asgiref/</span><span class="djdt-file">sync.py</span> in <span class="djdt-func">thread_handler</span>(<span class="djdt-lineno">429</span>)</span>
+          </div>
+        </td>
+        <td>0.061</td>
+        <td>0.020</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>3</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1" id="profilingMain_0_1_3_1_1_3">
+        <td>
+          <div data-djdt-styles="paddingLeft:80px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3">-</button>
+            
+            <span class="djdt-stack">{method &#x27;run&#x27; of &#x27;Context&#x27; objects}</span>
+          </div>
+        </td>
+        <td>0.061</td>
+        <td>0.020</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>3</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3" id="profilingMain_0_1_3_1_1_3_3">
+        <td>
+          <div data-djdt-styles="paddingLeft:96px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/usr/local/lib/python3.9/</span><span class="djdt-file">contextlib.py</span> in <span class="djdt-func">inner</span>(<span class="djdt-lineno">76</span>)</span>
+          </div>
+        </td>
+        <td>0.061</td>
+        <td>0.061</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3" id="profilingMain_0_1_3_1_1_3_3_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:112px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/contrib/auth/</span><span class="djdt-file">decorators.py</span> in <span class="djdt-func">_wrapped_view</span>(<span class="djdt-lineno">18</span>)</span>
+          </div>
+        </td>
+        <td>0.053</td>
+        <td>0.053</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1" id="profilingMain_0_1_3_1_1_3_3_1_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:128px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_1_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/app/django_with_react/djangoapps/frontend/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">index_authenticated</span>(<span class="djdt-lineno">67</span>)</span>
+          </div>
+        </td>
+        <td>0.031</td>
+        <td>0.031</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1 djToggleDetails_0_1_3_1_1_3_3_1_1" id="profilingMain_0_1_3_1_1_3_3_1_1_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:144px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_1_1_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/app/django_with_react/djangoapps/frontend/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">index</span>(<span class="djdt-lineno">9</span>)</span>
+          </div>
+        </td>
+        <td>0.031</td>
+        <td>0.031</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1 djToggleDetails_0_1_3_1_1_3_3_1_1 djToggleDetails_0_1_3_1_1_3_3_1_1_1" id="profilingMain_0_1_3_1_1_3_3_1_1_1_2">
+        <td>
+          <div data-djdt-styles="paddingLeft:160px">
+            
+              <span class="djNoToggleSwitch"></span>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/</span><span class="djdt-file">shortcuts.py</span> in <span class="djdt-func">render</span>(<span class="djdt-lineno">14</span>)</span>
+          </div>
+        </td>
+        <td>0.015</td>
+        <td>0.015</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1 djToggleDetails_0_1_3_1_1_3_3_1_1 djToggleDetails_0_1_3_1_1_3_3_1_1_1" id="profilingMain_0_1_3_1_1_3_3_1_1_1_5">
+        <td>
+          <div data-djdt-styles="paddingLeft:160px">
+            
+              <span class="djNoToggleSwitch"></span>
+            
+            <span class="djdt-stack"><span class="djdt-path">/usr/local/lib/python3.9/json/</span><span class="djdt-file">__init__.py</span> in <span class="djdt-func">load</span>(<span class="djdt-lineno">274</span>)</span>
+          </div>
+        </td>
+        <td>0.014</td>
+        <td>0.014</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1" id="profilingMain_0_1_3_1_1_3_3_1_2">
+        <td>
+          <div data-djdt-styles="paddingLeft:128px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_1_2">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/contrib/auth/</span><span class="djdt-file">decorators.py</span> in <span class="djdt-func">&lt;lambda&gt;</span>(<span class="djdt-lineno">44</span>)</span>
+          </div>
+        </td>
+        <td>0.021</td>
+        <td>0.021</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1 djToggleDetails_0_1_3_1_1_3_3_1_2" id="profilingMain_0_1_3_1_1_3_3_1_2_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:144px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_1_2_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/utils/</span><span class="djdt-file">functional.py</span> in <span class="djdt-func">inner</span>(<span class="djdt-lineno">244</span>)</span>
+          </div>
+        </td>
+        <td>0.021</td>
+        <td>0.021</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_1 djToggleDetails_0_1_3_1_1_3_3_1_2 djToggleDetails_0_1_3_1_1_3_3_1_2_1" id="profilingMain_0_1_3_1_1_3_3_1_2_1_2">
+        <td>
+          <div data-djdt-styles="paddingLeft:160px">
+            
+              <span class="djNoToggleSwitch"></span>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/utils/</span><span class="djdt-file">functional.py</span> in <span class="djdt-func">_setup</span>(<span class="djdt-lineno">381</span>)</span>
+          </div>
+        </td>
+        <td>0.022</td>
+        <td>0.011</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>2</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3" id="profilingMain_0_1_3_1_1_3_3_2">
+        <td>
+          <div data-djdt-styles="paddingLeft:112px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_2">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/db/</span><span class="djdt-file">transaction.py</span> in <span class="djdt-func">__enter__</span>(<span class="djdt-lineno">177</span>)</span>
+          </div>
+        </td>
+        <td>0.008</td>
+        <td>0.008</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_2" id="profilingMain_0_1_3_1_1_3_3_2_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:128px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_2_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/db/backends/base/</span><span class="djdt-file">base.py</span> in <span class="djdt-func">get_autocommit</span>(<span class="djdt-lineno">387</span>)</span>
+          </div>
+        </td>
+        <td>0.008</td>
+        <td>0.008</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_2 djToggleDetails_0_1_3_1_1_3_3_2_1" id="profilingMain_0_1_3_1_1_3_3_2_1_1">
+        <td>
+          <div data-djdt-styles="paddingLeft:144px">
+            
+              <button type="button" class="djProfileToggleDetails djToggleSwitch" data-toggle-name="profilingMain" data-toggle-id="0_1_3_1_1_3_3_2_1_1">-</button>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/utils/</span><span class="djdt-file">asyncio.py</span> in <span class="djdt-func">inner</span>(<span class="djdt-lineno">21</span>)</span>
+          </div>
+        </td>
+        <td>0.008</td>
+        <td>0.004</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_2 djToggleDetails_0_1_3_1_1_3_3_2_1 djToggleDetails_0_1_3_1_1_3_3_2_1_1" id="profilingMain_0_1_3_1_1_3_3_2_1_1_3">
+        <td>
+          <div data-djdt-styles="paddingLeft:160px">
+            
+              <span class="djNoToggleSwitch"></span>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/db/backends/base/</span><span class="djdt-file">base.py</span> in <span class="djdt-func">connect</span>(<span class="djdt-lineno">184</span>)</span>
+          </div>
+        </td>
+        <td>0.008</td>
+        <td>0.008</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>1</td>
+      </tr>
+    
+      <tr class=" djToggleDetails_0 djToggleDetails_0_1 djToggleDetails_0_1_3 djToggleDetails_0_1_3_1 djToggleDetails_0_1_3_1_1 djToggleDetails_0_1_3_1_1_3 djToggleDetails_0_1_3_1_1_3_3 djToggleDetails_0_1_3_1_1_3_3_2 djToggleDetails_0_1_3_1_1_3_3_2_1 djToggleDetails_0_1_3_1_1_3_3_2_1_1" id="profilingMain_0_1_3_1_1_3_3_2_1_1_4">
+        <td>
+          <div data-djdt-styles="paddingLeft:160px">
+            
+              <span class="djNoToggleSwitch"></span>
+            
+            <span class="djdt-stack"><span class="djdt-path">/django/db/backends/base/</span><span class="djdt-file">base.py</span> in <span class="djdt-func">ensure_connection</span>(<span class="djdt-lineno">214</span>)</span>
+          </div>
+        </td>
+        <td>0.008</td>
+        <td>0.001</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>5</td>
+      </tr>
+    
+  </tbody>
+</table>
+</div>
+      
+    </div>
+  </div>
+
+
+  
+  <div id="djDebugWindow" class="djdt-panelContent djdt-hidden"></div>
+</div>
+</body>
+</html>
